@@ -249,7 +249,7 @@ const HeaderOne = () => {
                                 </ul>
                             </li>
 
-                            {/* Blog Menu */}
+                            {/* Blog Menu
                             <li onClick={() => handleMenuClick(3)}
                                 className={`on-hover-item nav-menu__item has-submenu ${activeIndex === 3 ? "d-block" : ""
                                     }`}
@@ -286,7 +286,7 @@ const HeaderOne = () => {
                                         </Link>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> */}
 
                             {/* Contact Us Menu */}
                             <li className="nav-menu__item">
@@ -625,7 +625,7 @@ const HeaderOne = () => {
                                 <span className="text-gray-900 text-xl d-xs-flex d-none">
                                     <i className="ph ph-map-pin" />
                                 </span>
-                                <div className="line-height-1">
+                                {/* <div className="line-height-1">
                                     <span className="text-gray-600 text-xs">Your Location</span>
                                     <div className="line-height-1">
                                         <select defaultValue={1}
@@ -647,7 +647,7 @@ const HeaderOne = () => {
                                             <option value={1}>New York</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </form>
                         {/* form location start */}

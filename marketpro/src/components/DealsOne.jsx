@@ -195,7 +195,7 @@ const DealsOne = () => {
                                                 />
                                             </div>
                                             <span className="text-gray-900 text-xs fw-medium mt-8">
-                                                Sold: 18/35
+                                                
                                             </span>
                                         </div>
                                         <div className="product-card__price my-20">
@@ -270,9 +270,7 @@ const DealsOne = () => {
                                                     style={{ width: "35%" }}
                                                 />
                                             </div>
-                                            <span className="text-gray-900 text-xs fw-medium mt-8">
-                                                Sold: 18/35
-                                            </span>
+                                            
                                         </div>
                                         <div className="product-card__price my-20">
                                             <span className="text-gray-400 text-md fw-semibold text-decoration-line-through">
@@ -347,7 +345,9 @@ const DealsOne = () => {
                                                 />
                                             </div>
                                             <span className="text-gray-900 text-xs fw-medium mt-8">
-                                                Sold: 18/35
+                                        
+                                        
+
                                             </span>
                                         </div>
                                         <div className="product-card__price my-20">
@@ -423,7 +423,7 @@ const DealsOne = () => {
                                                 />
                                             </div>
                                             <span className="text-gray-900 text-xs fw-medium mt-8">
-                                                Sold: 18/35
+                                    
                                             </span>
                                         </div>
                                         <div className="product-card__price my-20">
@@ -499,7 +499,7 @@ const DealsOne = () => {
                                                 />
                                             </div>
                                             <span className="text-gray-900 text-xs fw-medium mt-8">
-                                                Sold: 18/35
+                                              
                                             </span>
                                         </div>
                                         <div className="product-card__price my-20">
@@ -575,7 +575,6 @@ const DealsOne = () => {
                                                 />
                                             </div>
                                             <span className="text-gray-900 text-xs fw-medium mt-8">
-                                                Sold: 18/35
                                             </span>
                                         </div>
                                         <div className="product-card__price my-20">
@@ -651,7 +650,7 @@ const DealsOne = () => {
                                                 />
                                             </div>
                                             <span className="text-gray-900 text-xs fw-medium mt-8">
-                                                Sold: 18/35
+                                       
                                             </span>
                                         </div>
                                         <div className="product-card__price my-20">

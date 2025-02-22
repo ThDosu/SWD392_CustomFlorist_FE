@@ -240,7 +240,7 @@ const Checkout = () => {
                                         </div>
                                     )}
                                 </div>
-                                <div className="payment-item">
+                                {/* <div className="payment-item">
                                     <div className="form-check common-check common-radio py-16 mb-0">
                                         <input
                                             className="form-check-input"
@@ -264,8 +264,8 @@ const Checkout = () => {
                                             </p>
                                         </div>
                                     )}
-                                </div>
-                                <div className="payment-item">
+                                </div> */}
+                                {/* <div className="payment-item">
                                     <div className="form-check common-check common-radio py-16 mb-0">
                                         <input
                                             className="form-check-input"
@@ -289,7 +289,7 @@ const Checkout = () => {
                                             </p>
                                         </div>
                                     )}
-                                </div>
+                                </div> */}
                             </div>
                             <div className="mt-32 pt-32 border-top border-gray-100">
                                 <p className="text-gray-500">

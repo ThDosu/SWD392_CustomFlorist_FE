@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
-const BannerOne = () => {
 
+const BannerOne = () => {
     function SampleNextArrow(props) {
         const { className, onClick } = props;
         return (
@@ -14,11 +14,10 @@ const BannerOne = () => {
             </button>
         );
     }
+
     function SamplePrevArrow(props) {
         const { className, onClick } = props;
-
         return (
-
             <button
                 type="button"
                 onClick={onClick}
@@ -28,6 +27,7 @@ const BannerOne = () => {
             </button>
         );
     }
+
     const settings = {
         dots: false,
         arrows: true,
@@ -38,9 +38,8 @@ const BannerOne = () => {
         initialSlide: 0,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
-
-
     };
+
     return (
         <div className="banner">
             <div className="container container-lg">
@@ -58,23 +57,20 @@ const BannerOne = () => {
                         alt=""
                         className="banner-img position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 z-n1 object-fit-cover rounded-24"
                     />
-                    <div className="flex-align">
-
-
-                    </div>
+                    <div className="flex-align"></div>
                     <div className="banner-slider">
                         <Slider {...settings}>
                             <div className="banner-slider__item">
                                 <div className="banner-slider__inner flex-between position-relative">
                                     <div className="banner-item__content">
                                         <h1 className="banner-item__title bounce">
-                                            Daily Grocery Order and Get Express Delivery
+                                            Đặt Hàng Tạp Hóa Hàng Ngày Và Nhận Giao Hàng Nhanh
                                         </h1>
                                         <Link
                                             to="/shop"
                                             className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8"
                                         >
-                                            Explore Shop{" "}
+                                            Khám Phá Cửa Hàng{" "}
                                             <span className="icon text-xl d-flex">
                                                 <i className="ph ph-shopping-cart-simple" />{" "}
                                             </span>
@@ -89,13 +85,13 @@ const BannerOne = () => {
                                 <div className="banner-slider__inner flex-between position-relative">
                                     <div className="banner-item__content">
                                         <h1 className="banner-item__title">
-                                            Daily Grocery Order and Get Express Delivery
+                                            Đặt Hàng Tạp Hóa Hàng Ngày Và Nhận Giao Hàng Nhanh
                                         </h1>
                                         <Link
                                             to="/shop"
                                             className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8"
                                         >
-                                            Explore Shop{" "}
+                                            Khám Phá Cửa Hàng{" "}
                                             <span className="icon text-xl d-flex">
                                                 <i className="ph ph-shopping-cart-simple" />{" "}
                                             </span>
@@ -111,8 +107,7 @@ const BannerOne = () => {
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
 
-export default BannerOne
+export default BannerOne;

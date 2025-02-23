@@ -7,22 +7,22 @@ const Account = () => {
             <div className="container container-lg">
                 <form action="#">
                     <div className="row gy-4">
-                        {/* Login Card Start */}
+                        {/* Thẻ Đăng Nhập Bắt Đầu */}
                         <div className="col-xl-6 pe-xl-5">
                             <div className="border border-gray-100 hover-border-main-600 transition-1 rounded-16 px-24 py-40 h-100">
-                                <h6 className="text-xl mb-32">Login</h6>
+                                <h6 className="text-xl mb-32">Đăng Nhập</h6>
                                 <div className="mb-24">
                                     <label
                                         htmlFor="username"
                                         className="text-neutral-900 text-lg mb-8 fw-medium"
                                     >
-                                        Username or email address <span className="text-danger">*</span>{" "}
+                                        Tên đăng nhập hoặc email <span className="text-danger">*</span>{" "}
                                     </label>
                                     <input
                                         type="text"
                                         className="common-input"
                                         id="username"
-                                        placeholder="First Name"
+                                        placeholder="Nhập tên đăng nhập"
                                     />
                                 </div>
                                 <div className="mb-24">
@@ -30,14 +30,14 @@ const Account = () => {
                                         htmlFor="password"
                                         className="text-neutral-900 text-lg mb-8 fw-medium"
                                     >
-                                        Password
+                                        Mật khẩu
                                     </label>
                                     <div className="position-relative">
                                         <input
                                             type="password"
                                             className="common-input"
                                             id="password"
-                                            placeholder="Enter Password"
+                                            placeholder="Nhập mật khẩu"
                                             defaultValue="password"
                                         />
                                         <span
@@ -49,7 +49,7 @@ const Account = () => {
                                 <div className="mb-24 mt-48">
                                     <div className="flex-align gap-48 flex-wrap">
                                         <button type="submit" className="btn btn-main py-18 px-40">
-                                            Log in
+                                            Đăng nhập
                                         </button>
                                         <div className="form-check common-check">
                                             <input
@@ -62,7 +62,7 @@ const Account = () => {
                                                 className="form-check-label flex-grow-1"
                                                 htmlFor="remember"
                                             >
-                                                Remember me
+                                                Ghi nhớ đăng nhập
                                             </label>
                                         </div>
                                     </div>
@@ -72,28 +72,28 @@ const Account = () => {
                                         to="#"
                                         className="text-danger-600 text-sm fw-semibold hover-text-decoration-underline"
                                     >
-                                        Forgot your password?
+                                        Quên mật khẩu?
                                     </Link>
                                 </div>
                             </div>
                         </div>
-                        {/* Login Card End */}
-                        {/* Register Card Start */}
+                        {/* Thẻ Đăng Nhập Kết Thúc */}
+                        {/* Thẻ Đăng Ký Bắt Đầu */}
                         <div className="col-xl-6">
                             <div className="border border-gray-100 hover-border-main-600 transition-1 rounded-16 px-24 py-40">
-                                <h6 className="text-xl mb-32">Register</h6>
+                                <h6 className="text-xl mb-32">Đăng Ký</h6>
                                 <div className="mb-24">
                                     <label
                                         htmlFor="usernameTwo"
                                         className="text-neutral-900 text-lg mb-8 fw-medium"
                                     >
-                                        Username <span className="text-danger">*</span>{" "}
+                                        Tên đăng nhập <span className="text-danger">*</span>{" "}
                                     </label>
                                     <input
                                         type="text"
                                         className="common-input"
                                         id="usernameTwo"
-                                        placeholder="Write a username"
+                                        placeholder="Nhập tên đăng nhập"
                                     />
                                 </div>
                                 <div className="mb-24">
@@ -101,14 +101,14 @@ const Account = () => {
                                         htmlFor="emailTwo"
                                         className="text-neutral-900 text-lg mb-8 fw-medium"
                                     >
-                                        Email address
+                                        Địa chỉ email
                                         <span className="text-danger">*</span>{" "}
                                     </label>
                                     <input
                                         type="email"
                                         className="common-input"
                                         id="emailTwo"
-                                        placeholder="Enter Email Address"
+                                        placeholder="Nhập địa chỉ email"
                                     />
                                 </div>
                                 <div className="mb-24">
@@ -116,7 +116,7 @@ const Account = () => {
                                         htmlFor="enter-password"
                                         className="text-neutral-900 text-lg mb-8 fw-medium"
                                     >
-                                        Password
+                                        Mật khẩu
                                         <span className="text-danger">*</span>
                                     </label>
                                     <div className="position-relative">
@@ -124,7 +124,7 @@ const Account = () => {
                                             type="password"
                                             className="common-input"
                                             id="enter-password"
-                                            placeholder="Enter Password"
+                                            placeholder="Nhập mật khẩu"
                                             defaultValue="password"
                                         />
                                         <span
@@ -135,29 +135,27 @@ const Account = () => {
                                 </div>
                                 <div className="my-48">
                                     <p className="text-gray-500">
-                                        Your personal data will be used to process your order, support
-                                        your experience throughout this website, and for other purposes
-                                        described in our
+                                        Thông tin cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng, hỗ trợ
+                                        trải nghiệm của bạn trên trang web này, và cho các mục đích khác
+                                        được mô tả trong
                                         <Link to="#" className="text-main-600 text-decoration-underline">
-                                            {" "}
-                                            privacy policy
+                                            chính sách bảo mật
                                         </Link>
                                         .
                                     </p>
                                 </div>
                                 <div className="mt-48">
                                     <button type="submit" className="btn btn-main py-18 px-40">
-                                        Register
+                                        Đăng Ký
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        {/* Register Card End */}
+                        {/* Thẻ Đăng Ký Kết Thúc */}
                     </div>
                 </form>
             </div>
         </section>
-
     )
 }
 

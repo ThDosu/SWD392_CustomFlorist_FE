@@ -204,7 +204,7 @@ const FooterOne = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="footer-item">
+                    {/* <div className="footer-item">
                         <h6 className="">Shop on The Go</h6>
                         <p className="mb-16">Marketpro App is available. Get it now</p>
                         <div className="flex-align gap-8 my-32">
@@ -249,7 +249,7 @@ const FooterOne = () => {
                                 </Link>
                             </li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </footer>

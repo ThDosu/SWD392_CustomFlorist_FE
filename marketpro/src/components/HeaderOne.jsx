@@ -132,10 +132,10 @@ const HeaderOne = () => {
                                             onClick={() => setActiveIndex(null)}
                                         >
                                             {" "}
-                                            Home One
+                                            Trang chủ
                                         </Link>
                                     </li>
-                                    <li className="common-dropdown__item nav-submenu__item">
+                                    {/* <li className="common-dropdown__item nav-submenu__item">
                                         <Link
                                             to="/index-two"
                                             className="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
@@ -144,7 +144,7 @@ const HeaderOne = () => {
                                             {" "}
                                             Home Two
                                         </Link>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </li>
 
@@ -181,10 +181,10 @@ const HeaderOne = () => {
                                             onClick={() => setActiveIndex(null)}
                                         >
                                             {" "}
-                                            Shop Details
+                                           Chi tiết sản phẩm
                                         </Link>
                                     </li>
-                                    <li className="common-dropdown__item nav-submenu__item">
+                                    {/* <li className="common-dropdown__item nav-submenu__item">
                                         <Link
                                             to="/product-details-two"
                                             className="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
@@ -193,7 +193,7 @@ const HeaderOne = () => {
                                             {" "}
                                             Shop Details Two
                                         </Link>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </li>
 
@@ -576,7 +576,7 @@ const HeaderOne = () => {
             </div>
             {/* ======================= Middle Top End ========================= */}
             {/* ======================= Middle Header Start ========================= */}
-            <header className="header-middle bg-color-one border-bottom border-gray-100">
+            <header className="header-middle  border-bottom border-gray-100">
                 <div className="container container-lg">
                     <nav className="header-inner flex-between">
                         {/* Logo Start */}
@@ -588,7 +588,7 @@ const HeaderOne = () => {
                         {/* Logo End  */}
                         {/* form location Start */}
                         <form action="#" className="flex-align flex-wrap form-location-wrapper">
-                            <div className="search-category d-flex h-48 select-border-end-0 radius-end-0 search-form d-sm-flex d-none">
+                            <div className="search-category .btn-main  d-flex h-48 select-border-end-0 radius-end-0 search-form d-sm-flex d-none">
                                 <select defaultValue={1}
                                     className="js-example-basic-single border border-gray-200 border-end-0"
                                     name="state"
@@ -1019,20 +1019,10 @@ const HeaderOne = () => {
                                                         navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
                                                     }
                                                 >
-                                                    Home One
+                                                   Trang chủ
                                                 </NavLink>
                                             </li>
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <NavLink
-                                                    to="/index-two"
-                                                    className={(navData) =>
-                                                        navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    }
-                                                >
-                                                    {" "}
-                                                    Home Two
-                                                </NavLink>
-                                            </li>
+                                       
                                         </ul>
                                     </li>
                                     <li className="on-hover-item nav-menu__item has-submenu">
@@ -1059,20 +1049,10 @@ const HeaderOne = () => {
                                                     }
                                                 >
                                                     {" "}
-                                                    Shop Details
+                                                    Chi tiết sản phẩm
                                                 </NavLink>
                                             </li>
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <NavLink
-                                                    to="/product-details-two"
-                                                    className={(navData) =>
-                                                        navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    }
-                                                >
-                                                    {" "}
-                                                    Shop Details Two
-                                                </NavLink>
-                                            </li>
+                                     
                                         </ul>
                                     </li>
                                     <li className="on-hover-item nav-menu__item has-submenu">
@@ -1118,35 +1098,7 @@ const HeaderOne = () => {
                                             </li>
                                         </ul>
                                     </li>
-                                    <li className="on-hover-item nav-menu__item has-submenu">
-                                        <Link to="#" className="nav-menu__link">
-                                            Blog
-                                        </Link>
-                                        <ul className="on-hover-dropdown common-dropdown nav-submenu scroll-sm">
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <NavLink
-                                                    to="/blog"
-                                                    className={(navData) =>
-                                                        navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    }
-                                                >
-                                                    {" "}
-                                                    Blog
-                                                </NavLink>
-                                            </li>
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <NavLink
-                                                    to="/blog-details"
-                                                    className={(navData) =>
-                                                        navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    }
-                                                >
-                                                    {" "}
-                                                    Blog Details
-                                                </NavLink>
-                                            </li>
-                                        </ul>
-                                    </li>
+                              
                                     <li className="nav-menu__item">
                                         <NavLink to="/contact" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"

@@ -52,7 +52,7 @@ const FeaturedOne = () => {
     };
     return (
         <section className="featured-products">
-            {/* <div className="container container-lg">
+            <div className="container container-lg">
                 <div className="row g-4 flex-wrap-reverse">
                     <div className="col-xxl-8">
                         <div className="border border-gray-100 p-24 rounded-16">
@@ -508,7 +508,7 @@ const FeaturedOne = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
         </section>
 
     )

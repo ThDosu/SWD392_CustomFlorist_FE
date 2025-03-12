@@ -16,7 +16,7 @@ const ShopPage = () => {
       <ColorInit color={true} />
 
       {/* ScrollToTop */}
-      <ScrollToTop smooth color="#FA6400" />
+      <ScrollToTop smooth color="#299E60" />
 
       {/* Preloader */}
       <Preloader />

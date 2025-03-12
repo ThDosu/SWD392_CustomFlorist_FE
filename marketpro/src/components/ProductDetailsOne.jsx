@@ -97,10 +97,10 @@ const ProductDetailsOne = () => {
                                             </span>
                                         </div>
                                         <span className="text-sm fw-medium text-gray-500">|</span>
-                                        <span className="text-gray-900">
+                                        {/* <span className="text-gray-900">
                                             {" "}
                                             <span className="text-gray-400">SKU:</span>EB4DRP{" "}
-                                        </span>
+                                        </span> */}
                                     </div>
                                     <span className="mt-32 pt-32 text-gray-700 border-top border-gray-100 d-block" />
                                     <p className="text-gray-700">
@@ -113,15 +113,15 @@ const ProductDetailsOne = () => {
                                             <h4 className="mb-0">$25.00</h4>
                                             <span className="text-md text-gray-500">$38.00</span>
                                         </div>
-                                        <Link to="#" className="btn btn-main rounded-pill">
+                                        {/* <Link to="#" className="btn btn-main rounded-pill">
                                             Order on What'sApp
-                                        </Link>
+                                        </Link> */}
                                     </div>
                                     <span className="mt-32 pt-32 text-gray-700 border-top border-gray-100 d-block" />
                                     <div className="flex-align flex-wrap gap-16 bg-color-one rounded-8 py-16 px-24">
-                                        <div className="flex-align gap-16">
+                                        {/* <div className="flex-align gap-16">
                                             <span className="text-main-600 text-sm">Special Offer:</span>
-                                        </div>
+                                        </div> */}
                                         <div className="countdown" id="countdown11">
                                             <ul className="countdown-list flex-align flex-wrap">
                                                 <li className="countdown-list__item text-heading flex-align gap-4 text-xs fw-medium w-28 h-28 rounded-4 border border-main-600 p-0 flex-center">
@@ -147,9 +147,9 @@ const ProductDetailsOne = () => {
                                             <span className="w-32 h-32 bg-white flex-center rounded-circle text-main-600 box-shadow-xl">
                                                 <i className="ph-fill ph-lightning" />
                                             </span>
-                                            <h6 className="text-md mb-0 fw-bold text-gray-900">
+                                            {/* <h6 className="text-md mb-0 fw-bold text-gray-900">
                                                 Products are almost sold out
-                                            </h6>
+                                            </h6> */}
                                         </div>
                                         <div
                                             className="progress w-100 bg-gray-100 rounded-pill h-8"
@@ -198,7 +198,7 @@ const ProductDetailsOne = () => {
                                                 <i className="ph ph-shopping-cart" /> Add To Cart
                                             </Link>
                                         </div>
-                                        <div className="flex-align gap-12">
+                                        {/* <div className="flex-align gap-12">
                                             <Link
                                                 to="#"
                                                 className="w-52 h-52 bg-main-50 text-main-600 text-xl hover-bg-main-600 hover-text-white flex-center rounded-circle"
@@ -217,7 +217,7 @@ const ProductDetailsOne = () => {
                                             >
                                                 <i className="ph ph-share-network" />
                                             </Link>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <span className="mt-32 pt-32 text-gray-700 border-top border-gray-100 d-block" />
                                     <div className="flex-between gap-16 p-12 border border-main-two-600 border-dashed rounded-8 mb-16">

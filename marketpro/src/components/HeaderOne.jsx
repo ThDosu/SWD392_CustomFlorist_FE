@@ -210,7 +210,7 @@ const HeaderOne = () => {
                                     className="nav-menu__link"
 
                                 >
-                                    Pages
+                                    Người dùngdùng
                                 </Link>
                                 <ul
                                     className={`on-hover-dropdown common-dropdown nav-submenu scroll-sm ${activeIndex === 2 ? "open" : ""
@@ -223,7 +223,7 @@ const HeaderOne = () => {
                                             onClick={() => setActiveIndex(null)}
                                         >
                                             {" "}
-                                            Cart
+                                            Giỏ hàng
                                         </Link>
                                     </li>
                                     <li className="common-dropdown__item nav-submenu__item">
@@ -233,7 +233,7 @@ const HeaderOne = () => {
                                             onClick={() => setActiveIndex(null)}
                                         >
                                             {" "}
-                                            Checkout{" "}
+                                            Thanh Toán{" "}
                                         </Link>
                                     </li>
                                     <li className="common-dropdown__item nav-submenu__item">
@@ -243,7 +243,7 @@ const HeaderOne = () => {
                                             onClick={() => setActiveIndex(null)}
                                         >
                                             {" "}
-                                            Account
+                                            Tài khoản
                                         </Link>
                                     </li>
                                 </ul>
@@ -594,7 +594,7 @@ const HeaderOne = () => {
                                     name="state"
                                 >
                                     <option value={1} >
-                                        All Categories
+                                        Tất cả sản phẩm
                                     </option>
                                     <option value={1}>Grocery</option>
                                     <option value={1}>Breakfast &amp; Dairy</option>
@@ -611,7 +611,7 @@ const HeaderOne = () => {
                                     <input
                                         type="text"
                                         className="search-form__input common-input py-13 ps-16 pe-18 rounded-end-pill pe-44"
-                                        placeholder="Search for a product or brand"
+                                        placeholder="Tìm kiếm sản phẩm"
                                     />
                                     <button
                                         type="submit"
@@ -670,7 +670,7 @@ const HeaderOne = () => {
                                         </span>
                                     </span>
                                     <span className="text-md text-gray-500 item-hover__text d-none d-lg-flex">
-                                        Wishlist
+                                        Danh Sách Yêu Thích
                                     </span>
                                 </Link>
                                 <Link to="/cart" className="flex-align gap-4 item-hover">
@@ -681,7 +681,7 @@ const HeaderOne = () => {
                                         </span>
                                     </span>
                                     <span className="text-md text-gray-500 item-hover__text d-none d-lg-flex">
-                                        Cart
+                                        Giỏ Hàng
                                     </span>
                                 </Link>
                             </div>
@@ -706,7 +706,7 @@ const HeaderOne = () => {
                                     <span className="icon text-2xl d-xs-flex d-none">
                                         <i className="ph ph-dots-nine" />
                                     </span>
-                                    <span className="d-sm-flex d-none">All</span> Categories
+                                    <span className="d-sm-flex d-none">Tất cả sản phẩm</span>
                                     <span className="arrow-icon text-xl d-flex">
                                         <i className="ph ph-caret-down" />
                                     </span>
@@ -1008,7 +1008,7 @@ const HeaderOne = () => {
                                 <ul className="nav-menu flex-align ">
                                     <li className="on-hover-item nav-menu__item has-submenu">
                                         <Link to="#" className="nav-menu__link">
-                                            Home
+                                            Trang chủ
                                         </Link>
                                         <ul className="on-hover-dropdown common-dropdown nav-submenu scroll-sm">
                                             <li className="common-dropdown__item nav-submenu__item">
@@ -1037,7 +1037,7 @@ const HeaderOne = () => {
                                     </li>
                                     <li className="on-hover-item nav-menu__item has-submenu">
                                         <Link to="#" className="nav-menu__link">
-                                            Shop
+                                            Cửa hàng
                                         </Link>
                                         <ul className="on-hover-dropdown common-dropdown nav-submenu scroll-sm">
                                             <li className="common-dropdown__item nav-submenu__item">
@@ -1048,7 +1048,7 @@ const HeaderOne = () => {
                                                     }
                                                 >
                                                     {" "}
-                                                    Shop
+                                                    Cửa hàng
                                                 </NavLink>
                                             </li>
                                             <li className="common-dropdown__item nav-submenu__item">
@@ -1080,7 +1080,7 @@ const HeaderOne = () => {
                                             New
                                         </span>
                                         <Link to="#" className="nav-menu__link">
-                                            Pages
+                                            Người dùng
                                         </Link>
                                         <ul className="on-hover-dropdown common-dropdown nav-submenu scroll-sm">
                                             <li className="common-dropdown__item nav-submenu__item">
@@ -1091,7 +1091,7 @@ const HeaderOne = () => {
                                                     }
                                                 >
                                                     {" "}
-                                                    Cart
+                                                    Giỏ hàng
                                                 </NavLink>
                                             </li>
                                             <li className="common-dropdown__item nav-submenu__item">
@@ -1102,7 +1102,7 @@ const HeaderOne = () => {
                                                     }
                                                 >
                                                     {" "}
-                                                    Checkout{" "}
+                                                    Thanh toán{" "}
                                                 </NavLink>
                                             </li>
                                             <li className="common-dropdown__item nav-submenu__item">
@@ -1113,7 +1113,7 @@ const HeaderOne = () => {
                                                     }
                                                 >
                                                     {" "}
-                                                    Account
+                                                    Tài khoản
                                                 </NavLink>
                                             </li>
                                         </ul>
@@ -1151,7 +1151,7 @@ const HeaderOne = () => {
                                         <NavLink to="/contact" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
-                                            Contact Us
+                                            Liên hệ
                                         </NavLink>
                                     </li>
                                 </ul>

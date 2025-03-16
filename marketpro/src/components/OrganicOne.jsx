@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import Slider from 'react-slick';
+
 
 const OrganicOne = () => {
     function SampleNextArrow(props) {
@@ -28,50 +27,7 @@ const OrganicOne = () => {
             </button>
         );
     }
-    const settings = {
-        dots: false,
-        arrows: true,
-        infinite: true,
-        speed: 1000,
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        autoplay: true,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-        responsive: [
-            {
-                breakpoint: 1599,
-                settings: {
-                    slidesToShow: 6,
-                },
-            },
-            {
-                breakpoint: 1399,
-                settings: {
-                    slidesToShow: 4,
-                },
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 3,
-                },
-            },
-            {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 2,
-                },
-            },
-            {
-                breakpoint: 424,
-                settings: {
-                    slidesToShow: 1,
-                },
-            },
-        ],
-    };
+  
     return (
         <section className="organic-food py-80">
             <div className="container container-lg">

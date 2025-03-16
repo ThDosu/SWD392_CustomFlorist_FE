@@ -104,7 +104,7 @@ const HeaderOne = () => {
                 </button>
                 <div className="mobile-menu__inner">
                     <Link to="/" className="mobile-menu__logo">
-                        <img src="assets/images/logo/logo.png" alt="Logo" />
+                        <img src="assets/images/logo/logo_white.png" alt="Logo" />
                     </Link>
                     <div className="mobile-menu__menu">
                         {/* Nav Menu Start */}
@@ -440,7 +440,7 @@ const HeaderOne = () => {
                             <div className="header-menu d-lg-block d-none">
                                 {/* Nav Menu Start */}
                                 <ul className="nav-menu flex-align ">
-                                    <li className="on-hover-item nav-menu__item has-submenu">
+                                    {/* <li className="on-hover-item nav-menu__item has-submenu">
                                         <Link to="#" className="nav-menu__link">
                                             Trang chủ
                                         </Link>
@@ -458,8 +458,14 @@ const HeaderOne = () => {
                                             </li>
                                        
                                         </ul>
-                                    </li>
-                                    <li className="on-hover-item nav-menu__item has-submenu">
+                                    </li> */}
+                                        <li className="nav-menu__item">
+                                            <Link to="/" className="nav-menu__link">
+                                                Trang chủ
+                                            </Link>
+                                        </li>
+
+                                    {/* <li className="on-hover-item nav-menu__item has-submenu">
                                         <Link to="#" className="nav-menu__link">
                                             Shop
                                         </Link>
@@ -488,8 +494,13 @@ const HeaderOne = () => {
                                             </li>
                                      
                                         </ul>
+                                    </li> */}
+                                    <li className="nav-menu__item">
+                                        <Link to="/shop" className="nav-menu__link">
+                                            Shop
+                                        </Link>
                                     </li>
-                                 
+
                               
                                     <li className="nav-menu__item">
                                         <NavLink to="/contact" className={(navData) =>

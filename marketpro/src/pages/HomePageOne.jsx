@@ -9,12 +9,12 @@ import ProductListOne from "../components/ProductListOne";
 import OfferOne from "../components/OfferOne";
 import RecommendedOne from "../components/RecommendedOne";
 import HotDealsOne from "../components/HotDealsOne";
-import TopVendorsOne from "../components/TopVendorsOne";
+//import TopVendorsOne from "../components/TopVendorsOne";
 import BestSellsOne from "../components/BestSellsOne";
 import DeliveryOne from "../components/DeliveryOne";
-import OrganicOne from "../components/OrganicOne";
+//import OrganicOne from "../components/OrganicOne";
 import ShortProductOne from "../components/ShortProductOne";
-import BrandOne from "../components/BrandOne";
+//import BrandOne from "../components/BrandOne";
 import NewArrivalOne from "../components/NewArrivalOne";
 import ShippingOne from "../components/ShippingOne";
 import NewsletterOne from "../components/NewsletterOne";
@@ -64,23 +64,16 @@ const HomePageOne = () => {
       {/* HotDealsOne */}
       <HotDealsOne />
 
-      {/* TopVendorsOne */}
-      <TopVendorsOne />
-
       {/* BestSellsOne */}
       <BestSellsOne />
 
       {/* DeliveryOne */}
       <DeliveryOne />
 
-      {/* OrganicOne */}
-      <OrganicOne />
 
       {/* ShortProductOne */}
       <ShortProductOne />
 
-      {/* BrandOne */}
-      <BrandOne />
 
       {/* NewArrivalOne */}
       <NewArrivalOne />

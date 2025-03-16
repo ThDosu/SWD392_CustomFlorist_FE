@@ -74,8 +74,8 @@ const HeaderOne = () => {
             {/* ==================== Search Box Start Here ==================== */}
             <form action="#" className={`search-box ${activeSearch && "active"}`}>
                 <button onClick={handleSearchToggle}
-                    type="button"
-                    className="search-box__close position-absolute inset-block-start-0 inset-inline-end-0 m-16 w-48 h-48 border border-gray-100 rounded-circle flex-center text-white hover-text-gray-800 hover-bg-white text-2xl transition-1"
+                        type="button"
+                        className="search-box__close position-absolute inset-block-start-0 inset-inline-end-0 m-16 w-48 h-48 border border-gray-100 rounded-circle flex-center text-white hover-text-gray-800 hover-bg-white text-2xl transition-1"
                 >
                     <i className="ph ph-x" />
                 </button>
@@ -112,7 +112,7 @@ const HeaderOne = () => {
                             {/* Home Menu */}
                             <li onClick={() => handleMenuClick(0)}
                                 className={`on-hover-item nav-menu__item has-submenu ${activeIndex === 0 ? "d-block" : ""
-                                    }`}
+                                }`}
                             >
                                 <Link
                                     to="#"
@@ -123,7 +123,7 @@ const HeaderOne = () => {
                                 </Link>
                                 <ul
                                     className={`on-hover-dropdown common-dropdown nav-submenu scroll-sm ${activeIndex === 0 ? "open" : ""
-                                        }`}
+                                    }`}
                                 >
                                     <li className="common-dropdown__item nav-submenu__item">
                                         <Link
@@ -151,7 +151,7 @@ const HeaderOne = () => {
                             {/* Shop Menu */}
                             <li onClick={() => handleMenuClick(1)}
                                 className={`on-hover-item nav-menu__item has-submenu ${activeIndex === 1 ? "d-block" : ""
-                                    }`}
+                                }`}
                             >
                                 <Link
                                     to="#"
@@ -162,7 +162,7 @@ const HeaderOne = () => {
                                 </Link>
                                 <ul
                                     className={`on-hover-dropdown common-dropdown nav-submenu scroll-sm ${activeIndex === 1 ? "open" : ""
-                                        }`}
+                                    }`}
                                 >
                                     <li className="common-dropdown__item nav-submenu__item">
                                         <Link
@@ -181,7 +181,7 @@ const HeaderOne = () => {
                                             onClick={() => setActiveIndex(null)}
                                         >
                                             {" "}
-                                           Chi tiết sản phẩm
+                                            Chi tiết sản phẩm
                                         </Link>
                                     </li>
                                     {/* <li className="common-dropdown__item nav-submenu__item">
@@ -200,7 +200,7 @@ const HeaderOne = () => {
                             {/* Pages Menu */}
                             <li onClick={() => handleMenuClick(2)}
                                 className={`on-hover-item nav-menu__item has-submenu ${activeIndex === 2 ? "d-block" : ""
-                                    }`}
+                                }`}
                             >
                                 <span className="badge-notification bg-warning-600 text-white text-sm py-2 px-8 rounded-4">
                                     New
@@ -210,11 +210,11 @@ const HeaderOne = () => {
                                     className="nav-menu__link"
 
                                 >
-                                    Người dùngdùng
+                                    Pages
                                 </Link>
                                 <ul
                                     className={`on-hover-dropdown common-dropdown nav-submenu scroll-sm ${activeIndex === 2 ? "open" : ""
-                                        }`}
+                                    }`}
                                 >
                                     <li className="common-dropdown__item nav-submenu__item">
                                         <Link
@@ -223,7 +223,7 @@ const HeaderOne = () => {
                                             onClick={() => setActiveIndex(null)}
                                         >
                                             {" "}
-                                            Giỏ hàng
+                                            Cart
                                         </Link>
                                     </li>
                                     <li className="common-dropdown__item nav-submenu__item">
@@ -233,7 +233,7 @@ const HeaderOne = () => {
                                             onClick={() => setActiveIndex(null)}
                                         >
                                             {" "}
-                                            Thanh Toán{" "}
+                                            Checkout{" "}
                                         </Link>
                                     </li>
                                     <li className="common-dropdown__item nav-submenu__item">
@@ -243,7 +243,7 @@ const HeaderOne = () => {
                                             onClick={() => setActiveIndex(null)}
                                         >
                                             {" "}
-                                            Tài khoản
+                                            Account
                                         </Link>
                                     </li>
                                 </ul>
@@ -305,7 +305,7 @@ const HeaderOne = () => {
             </div>
             {/* ==================== Mobile Menu End Here ==================== */}
             {/* ======================= Middle Top Start ========================= */}
-            
+
             {/* ======================= Middle Top End ========================= */}
             {/* ======================= Middle Header Start ========================= */}
             <header className="header-middle  border-bottom border-gray-100">
@@ -320,30 +320,13 @@ const HeaderOne = () => {
                         {/* Logo End  */}
                         {/* form location Start */}
                         <form action="#" className="flex-align flex-wrap form-location-wrapper">
-                            <div className="search-category d-flex h-48 select-border-end-0 radius-end-0 search-form d-sm-flex d-none">
-                                <select defaultValue={1}
-                                    className="js-example-basic-single border border-gray-200 border-end-0"
-                                    name="state"
-                                >
-                                    <option value={1} >
-                                        Tất cả sản phẩm
-                                    </option>
-                                    <option value={1}>Grocery</option>
-                                    <option value={1}>Breakfast &amp; Dairy</option>
-                                    <option value={1}>Vegetables</option>
-                                    <option value={1}>Milks and Dairies</option>
-                                    <option value={1}>Pet Foods &amp; Toy</option>
-                                    <option value={1}>Breads &amp; Bakery</option>
-                                    <option value={1}>Fresh Seafood</option>
-                                    <option value={1}>Fronzen Foods</option>
-                                    <option value={1}>Noodles &amp; Rice</option>
-                                    <option value={1}>Ice Cream</option>
-                                </select>
+                            <div className="search-category .btn-main  d-flex h-48 select-border-end-0 radius-end-0 search-form d-sm-flex d-none">
+
                                 <div className="search-form__wrapper position-relative">
                                     <input
                                         type="text"
                                         className="search-form__input common-input py-13 ps-16 pe-18 rounded-end-pill pe-44"
-                                        placeholder="Tìm kiếm sản phẩm"
+                                        placeholder="Tìm kiếm sản phẩm"
                                     />
                                     <button
                                         type="submit"
@@ -353,7 +336,7 @@ const HeaderOne = () => {
                                     </button>
                                 </div>
                             </div>
-                          
+
                         </form>
                         {/* form location start */}
                         {/* Header Middle Right start */}
@@ -375,7 +358,7 @@ const HeaderOne = () => {
                                         </span>
                                     </span>
                                     <span className="text-md text-gray-500 item-hover__text d-none d-lg-flex">
-                                        Danh Sách Yêu Thích
+                                        Quan tâm
                                     </span>
                                 </Link>
                                 <Link to="/cart" className="flex-align gap-4 item-hover">
@@ -386,15 +369,28 @@ const HeaderOne = () => {
                                         </span>
                                     </span>
                                     <span className="text-md text-gray-500 item-hover__text d-none d-lg-flex">
-                                        Giỏ Hàng
+                                        Giỏ hàng
+                                    </span>
+                                </Link>
+
+                                <Link
+                                    to="/account"
+                                    className=" text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text"
+                                >
+                                    <span className="icon ">
+                                        {" "}
+                                        <i className="ph ph-user-circle" />{" "}
+                                    </span>
+                                    <span className="hover-text-decoration-underline">
+                                       Tài khoản
                                     </span>
                                 </Link>
                             </div>
-                           
+
                         </div>
                         {/* Header Middle Right End  */}
                     </nav>
-               
+
                 </div>
             </header>
             {/* ======================= Middle Header End ========================= */}
@@ -413,7 +409,7 @@ const HeaderOne = () => {
                                     <span className="icon text-2xl d-xs-flex d-none">
                                         <i className="ph ph-dots-nine" />
                                     </span>
-                                    <span className="d-sm-flex d-none">Tất cả sản phẩm</span>
+                                    <span className="d-sm-flex d-none">Danh mục</span> Sản phẩm
                                     <span className="arrow-icon text-xl d-flex">
                                         <i className="ph ph-caret-down" />
                                     </span>
@@ -435,7 +431,7 @@ const HeaderOne = () => {
                                     </div>
                                     {/* Logo End */}
                                     <ul className="scroll-sm p-0 py-8 w-300 max-h-400 overflow-y-auto">
-\
+                                        \
                                     </ul>
                                 </div>
                             </div>
@@ -447,7 +443,6 @@ const HeaderOne = () => {
                                     <li className="on-hover-item nav-menu__item has-submenu">
                                         <Link to="#" className="nav-menu__link">
                                             Trang chủ
-                                            Trang chủ
                                         </Link>
                                         <ul className="on-hover-dropdown common-dropdown nav-submenu scroll-sm">
                                             <li className="common-dropdown__item nav-submenu__item">
@@ -458,15 +453,15 @@ const HeaderOne = () => {
                                                         navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
                                                     }
                                                 >
-                                                   Trang chủ
+                                                    Trang chủ
                                                 </NavLink>
                                             </li>
-                                       
+
                                         </ul>
                                     </li>
                                     <li className="on-hover-item nav-menu__item has-submenu">
                                         <Link to="#" className="nav-menu__link">
-                                            Cửa hàng
+                                            Shop
                                         </Link>
                                         <ul className="on-hover-dropdown common-dropdown nav-submenu scroll-sm">
                                             <li className="common-dropdown__item nav-submenu__item">
@@ -477,7 +472,7 @@ const HeaderOne = () => {
                                                     }
                                                 >
                                                     {" "}
-                                                    Cửa hàng
+                                                    Mua sắm
                                                 </NavLink>
                                             </li>
                                             <li className="common-dropdown__item nav-submenu__item">
@@ -491,86 +486,16 @@ const HeaderOne = () => {
                                                     Chi tiết sản phẩm
                                                 </NavLink>
                                             </li>
-                                     
+
                                         </ul>
                                     </li>
-                                    <li className="on-hover-item nav-menu__item has-submenu">
-                                        <span className="badge-notification bg-warning-600 text-white text-sm py-2 px-8 rounded-4">
-                                            New
-                                        </span>
-                                        <Link to="#" className="nav-menu__link">
-                                            Người dùng
-                                        </Link>
-                                        <ul className="on-hover-dropdown common-dropdown nav-submenu scroll-sm">
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <NavLink
-                                                    to="/cart"
-                                                    className={(navData) =>
-                                                        navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    }
-                                                >
-                                                    {" "}
-                                                    Giỏ hàng
-                                                </NavLink>
-                                            </li>
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <NavLink
-                                                    to="/checkout"
-                                                    className={(navData) =>
-                                                        navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    }
-                                                >
-                                                    {" "}
-                                                    Thanh toán{" "}
-                                                </NavLink>
-                                            </li>
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <NavLink
-                                                    to="/account"
-                                                    className={(navData) =>
-                                                        navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    }
-                                                >
-                                                    {" "}
-                                                    Tài khoản
-                                                </NavLink>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li className="on-hover-item nav-menu__item has-submenu">
-                                        <Link to="#" className="nav-menu__link">
-                                            Blog
-                                        </Link>
-                                        <ul className="on-hover-dropdown common-dropdown nav-submenu scroll-sm">
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <NavLink
-                                                    to="/blog"
-                                                    className={(navData) =>
-                                                        navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    }
-                                                >
-                                                    {" "}
-                                                    Blog
-                                                </NavLink>
-                                            </li>
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <NavLink
-                                                    to="/blog-details"
-                                                    className={(navData) =>
-                                                        navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    }
-                                                >
-                                                    {" "}
-                                                    Blog Details
-                                                </NavLink>
-                                            </li>
-                                        </ul>
-                                    </li>
+
+
                                     <li className="nav-menu__item">
                                         <NavLink to="/contact" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
-                                            Liên hệ
+                                            Về chúng mình
                                         </NavLink>
                                     </li>
                                 </ul>
@@ -592,8 +517,8 @@ const HeaderOne = () => {
                             <div className="me-16 d-lg-none d-block">
                                 <div className="flex-align flex-wrap gap-12">
                                     <button onClick={handleSearchToggle}
-                                        type="button"
-                                        className="search-icon flex-align d-lg-none d-flex gap-4 item-hover"
+                                            type="button"
+                                            className="search-icon flex-align d-lg-none d-flex gap-4 item-hover"
                                     >
                                         <span className="text-2xl text-gray-700 d-flex position-relative item-hover__text">
                                             <i className="ph ph-magnifying-glass" />
@@ -636,7 +561,7 @@ const HeaderOne = () => {
                     </nav>
                 </div>
 
-                
+
             </header>
             {/* ==================== Header End Here ==================== */}
         </>

@@ -29,8 +29,8 @@ const OrganicOne = () => {
     }
   
     return (
-        <section className="organic-food py-80">
-            <div className="container container-lg">
+        <section className="">
+            <div className="">
                 {/* <div className="section-heading">
                     <div className="flex-between flex-wrap gap-8">
                         <h5 className="mb-0">Organic Food</h5>

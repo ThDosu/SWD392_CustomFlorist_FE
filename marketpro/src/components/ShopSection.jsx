@@ -508,7 +508,7 @@ const ShopSection = () => {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="shop-sidebar__box border border-gray-100 rounded-8 p-32 mb-32">
+                            {/* <div className="shop-sidebar__box border border-gray-100 rounded-8 p-32 mb-32">
                                 <h6 className="text-xl border-bottom border-gray-100 pb-24 mb-24">
                                     Filter by Brand
                                 </h6>
@@ -608,7 +608,7 @@ const ShopSection = () => {
                             </div>
                             <div className="shop-sidebar__box rounded-8">
                                 <img src="assets/images/thumbs/advertise-img1.png" alt="" />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     {/* Sidebar End */}

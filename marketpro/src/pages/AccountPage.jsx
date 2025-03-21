@@ -1,12 +1,12 @@
 import React from "react";
 import Preloader from "../helper/Preloader";
-
+import HeaderOne from "../components/HeaderOne";
 import HeaderTwo from "../components/HeaderTwo";
 import Breadcrumb from "../components/Breadcrumb";
 import FooterTwo from "../components/FooterTwo";
 import BottomFooter from "../components/BottomFooter";
 import ShippingOne from "../components/ShippingOne";
-import Account from "../components/Account";
+import Login from "../components/Login";
 import ScrollToTop from "react-scroll-to-top";
 import ColorInit from "../helper/ColorInit";
 
@@ -27,13 +27,14 @@ const AccountPage = () => {
       <Preloader />
 
       {/* HeaderTwo */}
-      <HeaderTwo category={true} />
+      {/* <HeaderTwo category={true} /> */}
+      <HeaderOne />
 
       {/* Breadcrumb */}
-      <Breadcrumb title={"Account"} />
+      <Breadcrumb title={"Đăng nhập"} />
 
       {/* Account */}
-      <Account />
+      <Login />
 
       {/* ShippingOne */}
       <ShippingOne />

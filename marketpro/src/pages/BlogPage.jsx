@@ -1,7 +1,8 @@
 import React from "react";
 import Preloader from "../helper/Preloader";
 import ColorInit from "../helper/ColorInit";
-import HeaderTwo from "../components/HeaderTwo";
+import HeaderOne
+ from "../components/HeaderOne";
 import Breadcrumb from "../components/Breadcrumb";
 import FooterTwo from "../components/FooterTwo";
 import BottomFooter from "../components/BottomFooter";
@@ -17,7 +18,7 @@ const BlogPage = () => {
   return (
     <>
       {/* ColorInit */}
-      <ColorInit color={true} />
+      <ColorInit color={false} />
 
       {/* ScrollToTop */}
       <ScrollToTop smooth color="#299E60" />
@@ -25,8 +26,9 @@ const BlogPage = () => {
       {/* Preloader */}
       <Preloader />
 
-      {/* HeaderTwo */}
-      <HeaderTwo category={true} />
+      {/* HeaderOne
+ */}
+      <HeaderOne  />
 
       {/* Breadcrumb */}
       <Breadcrumb title={"Blog"} />

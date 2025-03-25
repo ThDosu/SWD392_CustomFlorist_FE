@@ -74,8 +74,8 @@ const HeaderOne = () => {
             {/* ==================== Search Box Start Here ==================== */}
             <form action="#" className={`search-box ${activeSearch && "active"}`}>
                 <button onClick={handleSearchToggle}
-                    type="button"
-                    className="search-box__close position-absolute inset-block-start-0 inset-inline-end-0 m-16 w-48 h-48 border border-gray-100 rounded-circle flex-center text-white hover-text-gray-800 hover-bg-white text-2xl transition-1"
+                        type="button"
+                        className="search-box__close position-absolute inset-block-start-0 inset-inline-end-0 m-16 w-48 h-48 border border-gray-100 rounded-circle flex-center text-white hover-text-gray-800 hover-bg-white text-2xl transition-1"
                 >
                     <i className="ph ph-x" />
                 </button>
@@ -112,7 +112,7 @@ const HeaderOne = () => {
                             {/* Home Menu */}
                             <li onClick={() => handleMenuClick(0)}
                                 className={`on-hover-item nav-menu__item has-submenu ${activeIndex === 0 ? "d-block" : ""
-                                    }`}
+                                }`}
                             >
                                 <Link
                                     to="#"
@@ -123,7 +123,7 @@ const HeaderOne = () => {
                                 </Link>
                                 <ul
                                     className={`on-hover-dropdown common-dropdown nav-submenu scroll-sm ${activeIndex === 0 ? "open" : ""
-                                        }`}
+                                    }`}
                                 >
                                     <li className="common-dropdown__item nav-submenu__item">
                                         <Link
@@ -151,7 +151,7 @@ const HeaderOne = () => {
                             {/* Shop Menu */}
                             <li onClick={() => handleMenuClick(1)}
                                 className={`on-hover-item nav-menu__item has-submenu ${activeIndex === 1 ? "d-block" : ""
-                                    }`}
+                                }`}
                             >
                                 <Link
                                     to="#"
@@ -162,7 +162,7 @@ const HeaderOne = () => {
                                 </Link>
                                 <ul
                                     className={`on-hover-dropdown common-dropdown nav-submenu scroll-sm ${activeIndex === 1 ? "open" : ""
-                                        }`}
+                                    }`}
                                 >
                                     <li className="common-dropdown__item nav-submenu__item">
                                         <Link
@@ -181,7 +181,7 @@ const HeaderOne = () => {
                                             onClick={() => setActiveIndex(null)}
                                         >
                                             {" "}
-                                           Chi tiết sản phẩm
+                                            Chi tiết sản phẩm
                                         </Link>
                                     </li>
                                     {/* <li className="common-dropdown__item nav-submenu__item">
@@ -200,7 +200,7 @@ const HeaderOne = () => {
                             {/* Pages Menu */}
                             <li onClick={() => handleMenuClick(2)}
                                 className={`on-hover-item nav-menu__item has-submenu ${activeIndex === 2 ? "d-block" : ""
-                                    }`}
+                                }`}
                             >
                                 <span className="badge-notification bg-warning-600 text-white text-sm py-2 px-8 rounded-4">
                                     New
@@ -214,7 +214,7 @@ const HeaderOne = () => {
                                 </Link>
                                 <ul
                                     className={`on-hover-dropdown common-dropdown nav-submenu scroll-sm ${activeIndex === 2 ? "open" : ""
-                                        }`}
+                                    }`}
                                 >
                                     <li className="common-dropdown__item nav-submenu__item">
                                         <Link
@@ -295,7 +295,7 @@ const HeaderOne = () => {
                                     className="nav-menu__link"
                                     onClick={() => setActiveIndex(null)}
                                 >
-                                   About Us
+                                    Contact Us
                                 </Link>
                             </li>
                         </ul>
@@ -305,7 +305,7 @@ const HeaderOne = () => {
             </div>
             {/* ==================== Mobile Menu End Here ==================== */}
             {/* ======================= Middle Top Start ========================= */}
-            
+
             {/* ======================= Middle Top End ========================= */}
             {/* ======================= Middle Header Start ========================= */}
             <header className="header-middle  border-bottom border-gray-100">
@@ -321,7 +321,7 @@ const HeaderOne = () => {
                         {/* form location Start */}
                         <form action="#" className="flex-align flex-wrap form-location-wrapper">
                             <div className="search-category .btn-main  d-flex h-48 select-border-end-0 radius-end-0 search-form d-sm-flex d-none">
-                             
+
                                 <div className="search-form__wrapper position-relative">
                                     <input
                                         type="text"
@@ -336,7 +336,7 @@ const HeaderOne = () => {
                                     </button>
                                 </div>
                             </div>
-                          
+
                         </form>
                         {/* form location start */}
                         {/* Header Middle Right start */}
@@ -386,11 +386,11 @@ const HeaderOne = () => {
                                     </span>
                                 </Link>
                             </div>
-                           
+
                         </div>
                         {/* Header Middle Right End  */}
                     </nav>
-               
+
                 </div>
             </header>
             {/* ======================= Middle Header End ========================= */}
@@ -400,7 +400,41 @@ const HeaderOne = () => {
                     <nav className="header-inner d-flex justify-content-between gap-8">
                         <div className="flex-align menu-category-wrapper">
                             {/* Category Dropdown Start */}
-                            
+                            <div className="category on-hover-item">
+                                <button
+                                    onClick={handleCategoryToggle}
+                                    type="button"
+                                    className="category__button flex-align gap-8 fw-medium p-16 border-end border-start border-gray-100 text-heading"
+                                >
+                                    <span className="icon text-2xl d-xs-flex d-none">
+                                        <i className="ph ph-dots-nine" />
+                                    </span>
+                                    <span className="d-sm-flex d-none">Danh mục</span> Sản phẩm
+                                    <span className="arrow-icon text-xl d-flex">
+                                        <i className="ph ph-caret-down" />
+                                    </span>
+                                </button>
+                                <div className={`responsive-dropdown cat on-hover-dropdown common-dropdown nav-submenu p-0 submenus-submenu-wrapper ${activeCategory && "active"}`}>
+                                    <button
+                                        onClick={() => { handleCategoryToggle(); setActiveIndexCat(null) }}
+                                        type="button"
+                                        className="close-responsive-dropdown rounded-circle text-xl position-absolute inset-inline-end-0 inset-block-start-0 mt-4 me-8 d-lg-none d-flex"
+                                    >
+                                        {" "}
+                                        <i className="ph ph-x" />{" "}
+                                    </button>
+                                    {/* Logo Start */}
+                                    <div className="logo px-16 d-lg-none d-block">
+                                        <Link to="/" className="link">
+                                            <img src="assets/images/logo/logo.png" alt="Logo" />
+                                        </Link>
+                                    </div>
+                                    {/* Logo End */}
+                                    <ul className="scroll-sm p-0 py-8 w-300 max-h-400 overflow-y-auto">
+                                        \
+                                    </ul>
+                                </div>
+                            </div>
                             {/* Category Dropdown End  */}
                             {/* Menu Start  */}
                             <div className="header-menu d-lg-block d-none">
@@ -419,10 +453,10 @@ const HeaderOne = () => {
                                                         navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
                                                     }
                                                 >
-                                                   Trang chủ
+                                                    Trang chủ
                                                 </NavLink>
                                             </li>
-                                       
+
                                         </ul>
                                     </li>
                                     <li className="on-hover-item nav-menu__item has-submenu">
@@ -452,16 +486,16 @@ const HeaderOne = () => {
                                                     Chi tiết sản phẩm
                                                 </NavLink>
                                             </li>
-                                     
+
                                         </ul>
                                     </li>
-                                 
-                              
+
+
                                     <li className="nav-menu__item">
                                         <NavLink to="/contact" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
-                                            Về chúng mình 
+                                            Về chúng mình
                                         </NavLink>
                                     </li>
                                 </ul>
@@ -483,8 +517,8 @@ const HeaderOne = () => {
                             <div className="me-16 d-lg-none d-block">
                                 <div className="flex-align flex-wrap gap-12">
                                     <button onClick={handleSearchToggle}
-                                        type="button"
-                                        className="search-icon flex-align d-lg-none d-flex gap-4 item-hover"
+                                            type="button"
+                                            className="search-icon flex-align d-lg-none d-flex gap-4 item-hover"
                                     >
                                         <span className="text-2xl text-gray-700 d-flex position-relative item-hover__text">
                                             <i className="ph ph-magnifying-glass" />
@@ -527,7 +561,7 @@ const HeaderOne = () => {
                     </nav>
                 </div>
 
-                
+
             </header>
             {/* ==================== Header End Here ==================== */}
         </>

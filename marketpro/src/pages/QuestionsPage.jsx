@@ -1,19 +1,13 @@
 import React from "react";
 import Preloader from "../helper/Preloader";
-import ColorInit from "../helper/ColorInit";
 import HeaderTwo from "../components/HeaderTwo";
 import Breadcrumb from "../components/Breadcrumb";
+import Questions from "../components/Questions";
 import FooterTwo from "../components/FooterTwo";
-import BottomFooter from "../components/BottomFooter";
-import ShippingOne from "../components/ShippingOne";
-import Blog from "../components/Blog";
 import ScrollToTop from "react-scroll-to-top";
+import ColorInit from "../helper/ColorInit";
 
-
-const BlogPage = () => {
-
-
-
+const QuestionsPage = () => {
   return (
     <>
       {/* ColorInit */}
@@ -26,26 +20,18 @@ const BlogPage = () => {
       <Preloader />
 
       {/* HeaderTwo */}
-      <HeaderTwo />
+      <HeaderTwo category={true} />
 
       {/* Breadcrumb */}
-      <Breadcrumb title="Blog" />
+      <Breadcrumb title={"Câu hỏi thường gặp"} />
 
-      {/* Blog */}
-      <Blog />
-
-      {/* ShippingOne */}
-      <ShippingOne />
+      {/* Questions */}
+      <Questions />
 
       {/* FooterTwo */}
       <FooterTwo />
-
-      {/* BottomFooter */}
-      <BottomFooter />
-
-
     </>
   );
 };
 
-export default BlogPage;
+export default QuestionsPage; 

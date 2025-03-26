@@ -1,167 +1,152 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission here
+        console.log('Form submitted:', formData);
+    };
+
     return (
-        <section className="contact py-80">
-            <div className="container container-lg">
-                <div className="row gy-5">
-                    <div className="col-lg-8">
-                        <div className="contact-box border border-gray-100 rounded-16 px-24 py-40">
-                            <form action="#">
-                                <h6 className="mb-32">Make Custom Request</h6>
-                                <div className="row gy-4">
-                                    <div className="col-sm-6 col-xs-6">
-                                        <label
-                                            htmlFor="name"
-                                            className="flex-align gap-4 text-sm font-heading-two text-gray-900 fw-semibold mb-4"
-                                        >
-                                            Full Name{" "}
-                                            <span className="text-danger text-xl line-height-1">*</span>{" "}
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="common-input px-16"
-                                            id="name"
-                                            placeholder="Full name"
-                                        />
-                                    </div>
-                                    <div className="col-sm-6 col-xs-6">
-                                        <label
-                                            htmlFor="email"
-                                            className="flex-align gap-4 text-sm font-heading-two text-gray-900 fw-semibold mb-4"
-                                        >
-                                            Email Address{" "}
-                                            <span className="text-danger text-xl line-height-1">*</span>{" "}
-                                        </label>
-                                        <input
-                                            type="email"
-                                            className="common-input px-16"
-                                            id="email"
-                                            placeholder="Email address"
-                                        />
-                                    </div>
-                                    <div className="col-sm-6 col-xs-6">
-                                        <label
-                                            htmlFor="phone"
-                                            className="flex-align gap-4 text-sm font-heading-two text-gray-900 fw-semibold mb-4"
-                                        >
-                                            Phone Number
-                                            <span className="text-danger text-xl line-height-1">*</span>{" "}
-                                        </label>
-                                        <input
-                                            type="number"
-                                            className="common-input px-16"
-                                            id="phone"
-                                            placeholder="Phone Number*"
-                                        />
-                                    </div>
-                                    <div className="col-sm-6 col-xs-6">
-                                        <label
-                                            htmlFor="subject"
-                                            className="flex-align gap-4 text-sm font-heading-two text-gray-900 fw-semibold mb-4"
-                                        >
-                                            Subject
-                                            <span className="text-danger text-xl line-height-1">
-                                                *
-                                            </span>{" "}
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="common-input px-16"
-                                            id="subject"
-                                            placeholder="Subject"
-                                        />
-                                    </div>
-                                    <div className="col-sm-12">
-                                        <label
-                                            htmlFor="message"
-                                            className="flex-align gap-4 text-sm font-heading-two text-gray-900 fw-semibold mb-4"
-                                        >
-                                            Message
-                                            <span className="text-danger text-xl line-height-1">
-                                                *
-                                            </span>{" "}
-                                        </label>
-                                        <textarea
-                                            className="common-input px-16"
-                                            id="message"
-                                            placeholder="Type your message"
-                                            defaultValue={""}
-                                        />
-                                    </div>
-                                    <div className="col-sm-12 mt-32">
-                                        <button
-                                            type="submit"
-                                            className="btn btn-main py-18 px-32 rounded-8"
-                                        >
-                                            Get a Quote
-                                        </button>
-                                    </div>
+        <div className="contact-page py-120">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-6">
+                        <div className="contact-info">
+                            <h2 className="mb-40">Thông tin liên hệ</h2>
+                            <div className="contact-info-item mb-30">
+                                <h4 className="mb-15">Địa chỉ</h4>
+                                <p className="mb-10">Cửa hàng chính: 142 Nguyễn Văn Cừ, Phường Nguyễn Cư Trinh, Quận 1, TP.HCM</p>
+                                <p className="mb-10">Cửa Hàng TP.HCM: 225/3 Nguyễn Đình Chiểu, Phường 5, Quận 3, TP.HCM</p>
+                                <p>Chi nhánh Hà Nội: 65 Trần Phú, Ba Đình, Hà Nội</p>
+                            </div>
+                            <div className="contact-info-item mb-30">
+                                <h4 className="mb-15">Điện thoại</h4>
+                                <p className="mb-10">Hotline: 1900 1234</p>
+                                <p className="mb-10">TP.HCM: (028) 1234 5678</p>
+                                <p>Hà Nội: (024) 8765 4321</p>
+                            </div>
+                            <div className="contact-info-item mb-30">
+                                <h4 className="mb-15">Email</h4>
+                                <p className="mb-10">info@yourflorist.com</p>
+                                <p>support@yourflorist.com</p>
+                            </div>
+                            <div className="contact-info-item">
+                                <h4 className="mb-15">Giờ làm việc</h4>
+                                <p className="mb-10">Thứ 2 - Thứ 6: 8:00 - 21:00</p>
+                                <p className="mb-10">Thứ 7 - Chủ nhật: 8:00 - 20:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-6">
+                        <div className="contact-form">
+                            <h2 className="mb-40">Gửi tin nhắn</h2>
+                            <form onSubmit={handleSubmit}>
+                                <div className="mb-20">
+                                    <label htmlFor="name" className="form-label">Họ và tên</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="name"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
+                                    />
                                 </div>
+                                <div className="mb-20">
+                                    <label htmlFor="email" className="form-label">Email</label>
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-20">
+                                    <label htmlFor="phone" className="form-label">Số điện thoại</label>
+                                    <input
+                                        type="tel"
+                                        className="form-control"
+                                        id="phone"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-20">
+                                    <label htmlFor="subject" className="form-label">Chủ đề</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="subject"
+                                        name="subject"
+                                        value={formData.subject}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-20">
+                                    <label htmlFor="message" className="form-label">Nội dung</label>
+                                    <textarea
+                                        className="form-control"
+                                        id="message"
+                                        name="message"
+                                        rows="5"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
+                                    ></textarea>
+                                </div>
+                                <button type="submit" className="btn btn-primary">
+                                    Gửi tin nhắn
+                                </button>
                             </form>
                         </div>
                     </div>
-                    <div className="col-lg-4">
-                        <div className="contact-box border border-gray-100 rounded-16 px-24 py-40">
-                            <h6 className="mb-48">Get In Touch</h6>
-                            <div className="flex-align gap-16 mb-16">
-                                <span className="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0">
-                                    <i className="ph-fill ph-phone-call" />
-                                </span>
-                                <Link
-                                    to="/tel:+00123456789"
-                                    className="text-md text-gray-900 hover-text-main-600"
-                                >
-                                    +00 123 456 789
-                                </Link>
+                </div>
+
+                <div className="row mt-80">
+                    <div className="col-12">
+                        <div className="map-container">
+                            <h2 className="mb-40">Bản đồ</h2>
+                            <div className="map-wrapper">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2693114779!2d106.68713731500001!3d10.7626799922121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f5e7f4c0c1d%3A0x9f4c0c1d9f4c0c1d!2s142%20Nguy%E1%BB%85n%20V%C4%83n%20C%E1%BB%AB%2C%20Ph%C6%B0%E1%BB%9Dng%20Nguy%E1%BB%85n%20C%C6%B0%20Trinh%2C%20Qu%E1%BA%ADn%201%2C%20Th%C3%A0nh%20ph%E1%BB%91%20H%E1%BB%93%20Ch%C3%AD%20Minh!5e0!3m2!1svi!2s!4v1620000000000!5m2!1svi!2s"
+                                    width="100%"
+                                    height="450"
+                                    style={{ border: 0 }}
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                ></iframe>
                             </div>
-                            <div className="flex-align gap-16 mb-16">
-                                <span className="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0">
-                                    <i className="ph-fill ph-envelope" />
-                                </span>
-                                <Link
-                                    to="/mailto:support24@marketpro.com"
-                                    className="text-md text-gray-900 hover-text-main-600"
-                                >
-                                    support24@marketpro.com
-                                </Link>
-                            </div>
-                            <div className="flex-align gap-16 mb-0">
-                                <span className="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0">
-                                    <i className="ph-fill ph-map-pin" />
-                                </span>
-                                <span className="text-md text-gray-900 ">
-                                    789 Inner Lane, California, USA
-                                </span>
-                            </div>
-                        </div>
-                        <div className="mt-24 flex-align flex-wrap gap-16">
-                            <Link
-                                to="#"
-                                className="bg-neutral-600 hover-bg-main-600 rounded-8 p-10 px-16 flex-between flex-wrap gap-8 flex-grow-1"
-                            >
-                                <span className="text-white fw-medium">Get Support On Call</span>
-                                <span className="w-36 h-36 bg-main-600 rounded-8 flex-center text-xl text-white">
-                                    <i className="ph ph-headset" />
-                                </span>
-                            </Link>
-                            <Link
-                                to="#"
-                                className="bg-neutral-600 hover-bg-main-600 rounded-8 p-10 px-16 flex-between flex-wrap gap-8 flex-grow-1"
-                            >
-                                <span className="text-white fw-medium">Get Direction</span>
-                                <span className="w-36 h-36 bg-main-600 rounded-8 flex-center text-xl text-white">
-                                    <i className="ph ph-map-pin" />
-                                </span>
-                            </Link>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    );
+};
 
-    )
-}
-
-export default Contact
+export default Contact;

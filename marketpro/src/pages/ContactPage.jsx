@@ -8,6 +8,7 @@ import BottomFooter from "../components/BottomFooter";
 import ShippingOne from "../components/ShippingOne";
 import Contact from "../components/Contact";
 import ScrollToTop from "react-scroll-to-top";
+
 const ContactPage = () => {
   return (
     <>
@@ -24,7 +25,7 @@ const ContactPage = () => {
       <HeaderTwo category={true} />
 
       {/* Breadcrumb */}
-      <Breadcrumb title={"Contact"} />
+      <Breadcrumb title={"Liên hệ"} />
 
       {/* Contact */}
       <Contact />

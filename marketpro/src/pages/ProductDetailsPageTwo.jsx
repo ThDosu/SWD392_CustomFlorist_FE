@@ -31,7 +31,7 @@ const ProductDetailsPageTwo = () => {
       <HeaderTwo category={true} />
 
       {/* Breadcrumb */}
-      <Breadcrumb title={"Product Details"} />
+      <Breadcrumb title="Chi tiết sản phẩm" />
 
       {/* ProductDetailsTwo */}
       <ProductDetailsTwo />

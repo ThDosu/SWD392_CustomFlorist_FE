@@ -26,10 +26,10 @@ const CartPage = () => {
       <Preloader />
 
       {/* HeaderTwo */}
-      <HeaderTwo category={true} />
+      <HeaderTwo />
 
       {/* Breadcrumb */}
-      <Breadcrumb title={"Cart"} />
+      <Breadcrumb title="Giỏ hàng" />
 
       {/* CartSection */}
       <CartSection />

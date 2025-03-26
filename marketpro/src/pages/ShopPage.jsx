@@ -26,9 +26,10 @@ const ShopPage = () => {
       {/* HeaderOne */}
       {/* <HeaderTwo category={true} /> */}
       <HeaderOne />
+      <HeaderTwo />
 
       {/* Breadcrumb */}
-      <Breadcrumb title={"Shop"} />
+      <Breadcrumb title="Cửa hàng" />
 
       {/* ShopSection */}
       <ShopSection />

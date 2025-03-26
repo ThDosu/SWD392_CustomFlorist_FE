@@ -664,17 +664,6 @@ const HeaderTwo = () => {
                                 </button>
                                 <Link to="/cart" className="flex-align gap-4 item-hover">
                                     <span className="text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text">
-                                        <i className="ph ph-heart" />
-                                        <span className="w-16 h-16 flex-center rounded-circle bg-main-600 text-white text-xs position-absolute top-n6 end-n4">
-                                            2
-                                        </span>
-                                    </span>
-                                    <span className="text-md text-gray-500 item-hover__text d-none d-lg-flex">
-                                        Wishlist
-                                    </span>
-                                </Link>
-                                <Link to="/cart" className="flex-align gap-4 item-hover">
-                                    <span className="text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text">
                                         <i className="ph ph-shopping-cart-simple" />
                                         <span className="w-16 h-16 flex-center rounded-circle bg-main-600 text-white text-xs position-absolute top-n6 end-n4">
                                             2
@@ -1132,17 +1121,6 @@ const HeaderTwo = () => {
                                             <i className="ph ph-magnifying-glass" />
                                         </span>
                                     </button>
-                                    <Link to="/cart" className="flex-align gap-4 item-hover">
-                                        <span className="text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text">
-                                            <i className="ph ph-heart" />
-                                            <span className="w-16 h-16 flex-center rounded-circle bg-main-600 text-white text-xs position-absolute top-n6 end-n4">
-                                                2
-                                            </span>
-                                        </span>
-                                        <span className="text-md text-gray-500 item-hover__text d-none d-lg-flex">
-                                            Wishlist
-                                        </span>
-                                    </Link>
                                     <Link to="/cart" className="flex-align gap-4 item-hover">
                                         <span className="text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text">
                                             <i className="ph ph-shopping-cart-simple" />

@@ -210,7 +210,7 @@ const HeaderOne = () => {
                                     className="nav-menu__link"
 
                                 >
-                                    Người dùngdùng
+                                    Người dùng
                                 </Link>
                                 <ul
                                     className={`on-hover-dropdown common-dropdown nav-submenu scroll-sm ${activeIndex === 2 ? "open" : ""
@@ -435,7 +435,6 @@ const HeaderOne = () => {
                                     </div>
                                     {/* Logo End */}
                                     <ul className="scroll-sm p-0 py-8 w-300 max-h-400 overflow-y-auto">
-\
                                     </ul>
                                 </div>
                             </div>
@@ -446,7 +445,6 @@ const HeaderOne = () => {
                                 <ul className="nav-menu flex-align ">
                                     <li className="on-hover-item nav-menu__item has-submenu">
                                         <Link to="#" className="nav-menu__link">
-                                            Trang chủ
                                             Trang chủ
                                         </Link>
                                         <ul className="on-hover-dropdown common-dropdown nav-submenu scroll-sm">

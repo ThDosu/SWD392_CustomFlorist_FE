@@ -1,71 +1,90 @@
-import React, { useEffect, useState } from 'react'
-import query from 'jquery';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { FaShoppingCart, FaUser } from 'react-icons/fa';
 
 const HeaderOne = () => {
-    const [scroll, setScroll] = useState(false)
+    const [scroll, setScroll] = useState(false);
+
     useEffect(() => {
-        window.onscroll = () => {
-            if (window.pageYOffset < 150) {
-                setScroll(false);
-            } else if (window.pageYOffset > 150) {
-                setScroll(true);
-            }
-            return () => (window.onscroll = null);
+        const handleScroll = () => {
+            setScroll(window.pageYOffset > 150);
         };
-        const selectElement = query('.js-example-basic-single');
-        selectElement.select2();
-
-        return () => {
-            if (selectElement.data('select2')) {
-                selectElement.select2('destroy');
-            }
-        };
-
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Set the default language
-    const [selectedLanguage, setSelectedLanguage] = useState("Eng");
-    const handleLanguageChange = (language) => {
-        setSelectedLanguage(language);
+    // Inline styles
+    const headerStyle = {
+        width: '100%',
+        backgroundColor: '#fff',
+        borderBottom: '1px solid #e5e7eb',
+        position: scroll ? 'fixed' : 'relative',
+        top: scroll ? 0 : 'auto',
+        left: scroll ? 0 : 'auto',
+        right: scroll ? 0 : 'auto',
+        zIndex: scroll ? 1000 : 'auto',
+        boxShadow: scroll ? '0 2px 5px rgba(0, 0, 0, 0.1)' : 'none',
     };
 
-    // Set the default currency
-    const [selectedCurrency, setSelectedCurrency] = useState("USD");
-    const handleCurrencyChange = (currency) => {
-        setSelectedCurrency(currency);
+    const containerStyle = {
+        maxWidth: '1200px',
+        margin: '0 auto',
     };
 
-
-    // Mobile menu support
-    const [menuActive, setMenuActive] = useState(false)
-    const [activeIndex, setActiveIndex] = useState(null);
-    const handleMenuClick = (index) => {
-        setActiveIndex(activeIndex === index ? null : index);
-    };
-    const handleMenuToggle = () => {
-        setMenuActive(!menuActive);
+    const headerInnerStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '100%',
+        padding: '15px 0',
     };
 
-
-    // Search control support
-    const [activeSearch, setActiveSearch] = useState(false)
-    const handleSearchToggle = () => {
-        setActiveSearch(!activeSearch);
+    const logoStyle = {
+        flexShrink: 0,
     };
 
-    // category control support
-    const [activeCategory, setActiveCategory] = useState(false)
-    const handleCategoryToggle = () => {
-        setActiveCategory(!activeCategory);
-    };
-    const [activeIndexCat, setActiveIndexCat] = useState(null);
-    const handleCatClick = (index) => {
-        setActiveIndexCat(activeIndexCat === index ? null : index);
+    const logoImgStyle = {
+        height: '100px',
+        width: 'auto',
     };
 
+    const navMenuStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+    };
 
+    const navMenuItemStyle = {
+        margin: '0 15px',
+    };
 
+    const navMenuLinkStyle = {
+        textDecoration: 'none',
+        color: '#333',
+        fontSize: '16px',
+        fontWeight: 500,
+        display: 'flex',
+        alignItems: 'center',
+    };
+
+    const navMenuLinkHoverStyle = {
+        color: '#007bff',
+    };
+
+    const badgeStyle = {
+        backgroundColor: '#28a745',
+        color: '#fff',
+        borderRadius: '50%',
+        padding: '2px 6px',
+        fontSize: '12px',
+        marginLeft: '5px',
+    };
+
+    const iconStyle = {
+        marginRight: '5px',
+    };
 
     return (
         <>
@@ -608,27 +627,14 @@ const HeaderOne = () => {
                                             Cart
                                         </span>
                                     </Link>
-                                </div>
-                            </div>
-                            <button
-                                onClick={handleMenuToggle}
-                                type="button"
-                                className="toggle-mobileMenu d-lg-none ms-3n text-gray-800 text-4xl d-flex"
-                            >
-                                {" "}
-                                <i className="ph ph-list" />{" "}
-                            </button>
+                                </li>
+                            </ul>
                         </div>
-                        {/* Header Right End  */}
                     </nav>
                 </div>
-
-                
             </header>
-            {/* ==================== Header End Here ==================== */}
         </>
+    );
+};
 
-    )
-}
-
-export default HeaderOne
+export default HeaderOne;

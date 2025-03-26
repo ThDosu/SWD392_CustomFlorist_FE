@@ -10,6 +10,7 @@ import BottomFooter from "../components/BottomFooter";
 import BreadcrumbTwo from './../components/BreadcrumbTwo';
 import ScrollToTop from "react-scroll-to-top";
 import ColorInit from "../helper/ColorInit";
+import HeaderTwo from "../components/HeaderTwo";
 
 const ProductDetailsPageOne = () => {
 
@@ -30,8 +31,11 @@ const ProductDetailsPageOne = () => {
       {/* HeaderOne */}
       <HeaderOne />
 
+      {/* HeaderTwo */}
+      <HeaderTwo />
+
       {/* Breadcrumb */}
-      <BreadcrumbTwo title={"Product Details"} />
+      <BreadcrumbTwo title="Chi tiết sản phẩm" />
 
       {/* ProductDetailsOne */}
       <ProductDetailsOne />

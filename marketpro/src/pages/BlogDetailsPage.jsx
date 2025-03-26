@@ -21,10 +21,10 @@ const BlogDetailsPage = () => {
       <Preloader />
 
       {/* HeaderTwo */}
-      <HeaderTwo category={true} />
+      <HeaderTwo />
 
       {/* Breadcrumb */}
-      <Breadcrumb title={"Blog Details"} />
+      <Breadcrumb title="Chi tiết blog" />
 
       {/* BlogDetails */}
       <BlogDetails />

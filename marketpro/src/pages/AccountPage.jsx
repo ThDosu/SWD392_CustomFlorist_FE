@@ -30,7 +30,7 @@ const AccountPage = () => {
       <HeaderTwo category={true} />
 
       {/* Breadcrumb */}
-      <Breadcrumb title={"Account"} />
+      <Breadcrumb title="Tài khoản" />
 
       {/* Account */}
       <Account />

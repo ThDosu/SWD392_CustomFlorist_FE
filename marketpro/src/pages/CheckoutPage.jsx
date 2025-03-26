@@ -26,10 +26,10 @@ const CheckoutPage = () => {
       <Preloader />
 
       {/* HeaderTwo */}
-      <HeaderTwo category={true} />
+      <HeaderTwo />
 
       {/* Breadcrumb */}
-      <Breadcrumb title={"Checkout"} />
+      <Breadcrumb title="Thanh toán" />
 
       {/* Checkout */}
       <Checkout />

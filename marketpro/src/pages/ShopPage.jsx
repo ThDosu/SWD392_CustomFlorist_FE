@@ -22,10 +22,10 @@ const ShopPage = () => {
       <Preloader />
 
       {/* HeaderOne */}
-      <HeaderTwo category={true} />
+      <HeaderTwo />
 
       {/* Breadcrumb */}
-      <Breadcrumb title={"Shop"} />
+      <Breadcrumb title="Cửa hàng" />
 
       {/* ShopSection */}
       <ShopSection />

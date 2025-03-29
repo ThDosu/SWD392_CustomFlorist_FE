@@ -200,7 +200,7 @@ const HeaderOne = () => {
                                 </li>
                                 <li style={navMenuItemStyle}>
                                     <NavLink
-                                        to="/about"
+                                        to="/introduction"
                                         style={navMenuLinkStyle}
                                         onMouseEnter={(e) =>
                                             (e.target.style.color = navMenuLinkHoverStyle.color)

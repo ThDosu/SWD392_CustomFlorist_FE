@@ -8,14 +8,18 @@ import BottomFooter from "../components/BottomFooter";
 import ShippingOne from "../components/ShippingOne";
 import Checkout from "../components/Checkout";
 import ScrollToTop from "react-scroll-to-top";
+import { useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 
 const CheckoutPage = () => {
-
-
+  const location = useLocation();
+  const order = location.state?.order;
+console.log('order', order)
 
   return (
     <>
+      <ToastContainer/>
       {/* ColorInit */}
       <ColorInit color={false} />
 
@@ -32,7 +36,7 @@ const CheckoutPage = () => {
       <Breadcrumb title={"Checkout"} />
 
       {/* Checkout */}
-      <Checkout />
+      <Checkout order={order}/>
 
       {/* ShippingOne */}
       <ShippingOne />

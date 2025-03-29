@@ -1,10 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import { jwtDecode } from 'jwt-decode';
 
 const HeaderOne = () => {
     const [scroll, setScroll] = useState(false);
+    const token = localStorage.getItem("tokenFlower")
+    const userLogin = JSON.parse(localStorage.getItem("userLoginFlower"))
+    const Cart = JSON.parse(localStorage.getItem("cartFlower")) ||[]
+    const [user,setUser] = useState(null)
+    const [cart,setCart] = useState([])
+    const [open, setOpen] = useState(false);
 
+    console.log('Cart', cart)
+    const handleLogout = () => {
+        localStorage.removeItem("tokenFlower")
+        localStorage.removeItem("userLoginFlower")
+        window.location.reload(); 
+    };
+    const fetchUser = async () => {
+        try {
+            if(Cart.length>0){
+                setCart(Cart)
+            }
+            if (!userLogin) {
+                if (token) {
+                    try {
+                        const decodedToken = jwtDecode(token);
+                        localStorage.setItem("userLoginFlower", JSON.stringify(decodedToken));
+                        setUser(decodedToken);
+                    } catch (decodeError) {
+                        console.error("Lỗi khi giải mã token:", decodeError);
+                        localStorage.removeItem("userLoginFlower"); 
+                    }
+                } else {
+                    localStorage.removeItem("userLoginFlower");
+                }
+            } else {
+                setUser(userLogin);
+            }
+        } catch (error) {
+            console.error("Lỗi trong fetchUser:", error);
+        }
+    };
+    
+    useEffect(()=>{
+        fetchUser()
+    },[token])
     useEffect(() => {
         const handleScroll = () => {
             setScroll(window.pageYOffset > 150);
@@ -130,12 +172,12 @@ const HeaderOne = () => {
                                             (e.target.style.color = navMenuLinkStyle.color)
                                         }
                                     >
-                                        Shop
+                                        Mua sắm
                                     </Link>
                                 </li>
                                 <li style={navMenuItemStyle}>
                                     <NavLink
-                                        to="/about"
+                                        to="/contact"
                                         style={navMenuLinkStyle}
                                         onMouseEnter={(e) =>
                                             (e.target.style.color = navMenuLinkHoverStyle.color)
@@ -160,23 +202,55 @@ const HeaderOne = () => {
                                     >
                                         <FaShoppingCart style={iconStyle} />
                                         Giỏ hàng
-                                        <span style={badgeStyle}>2</span>
+                                        {cart?.length>0?(
+                                           <span style={badgeStyle}>{cart?.length}</span>
+                                        ):(
+                                            <span style={badgeStyle}>0 </span>
+                                        )}
+                                        
                                     </Link>
                                 </li>
                                 <li style={navMenuItemStyle}>
-                                    <Link
-                                        to="/account"
-                                        style={navMenuLinkStyle}
-                                        onMouseEnter={(e) =>
-                                            (e.target.style.color = navMenuLinkHoverStyle.color)
-                                        }
-                                        onMouseLeave={(e) =>
-                                            (e.target.style.color = navMenuLinkStyle.color)
-                                        }
+                                    {user?(
+                                    <div className="dropdown">
+                                    <button
+                                        className="btn btn-dark dropdown-toggle d-flex align-items-center"
+                                        type="button"
+                                        id="userDropdown"
+                                        onClick={() => setOpen(!open)}
                                     >
-                                        <FaUser style={iconStyle} />
-                                        Tài khoản
-                                    </Link>
+                                        <span>{user?.FullName}</span>
+                                    </button>
+                                    <ul className={`dropdown-menu dropdown-menu-end ${open ? "show" : ""}`} aria-labelledby="userDropdown">
+                                        <li>
+                                            <Link className="dropdown-item" to="/profile">
+                                                <FaUser className="me-2" /> Hồ sơ
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <button className="dropdown-item text-danger" onClick={handleLogout}>
+                                                <i className="bi bi-box-arrow-right me-2"></i> Đăng xuất
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                    ):
+                                    (
+                                        <Link
+                                            to="/account"
+                                            style={navMenuLinkStyle}
+                                            onMouseEnter={(e) =>
+                                                (e.target.style.color = navMenuLinkHoverStyle.color)
+                                            }
+                                            onMouseLeave={(e) =>
+                                                (e.target.style.color = navMenuLinkStyle.color)
+                                            }
+                                            >
+                                            <FaUser style={iconStyle} />
+                                            Tài khoản
+                                        </Link>
+                                    )}
+
                                 </li>
                             </ul>
                         </div>

@@ -5,7 +5,7 @@ const Preloader = () => {
   useEffect(() => {
     setTimeout(function () {
       setActive(false);
-    }, 500);
+    }, 2500);
   }, []);
 
   return (

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
-const Checkout = () => {
+import { Link, useNavigate } from 'react-router-dom';
+import { postOrder } from "../api/oder";
+import { postVnPay } from "../api/payment";
+import { toast } from "react-toastify";
+const Checkout = ({order}) => {
     const [selectedPayment, setSelectedPayment] = useState("payment1");
-
+    const naviage = useNavigate()
     const handlePaymentChange = (event) => {
         setSelectedPayment(event.target.id);
     };
     const [detailAddress, setDetailAddress] = useState("");
-
     const [provinces, setProvinces] = useState([]);
     const [districts, setDistricts] = useState([]);
     const [wards, setWards] = useState([]);
@@ -16,17 +18,42 @@ const Checkout = () => {
     const [selectedProvince, setSelectedProvince] = useState("");
     const [selectedDistrict, setSelectedDistrict] = useState("");
     const [selectedWard, setSelectedWard] = useState("");
-
-    useEffect(() => {
-        console.log("Selected Province:", selectedProvince);
-        console.log("Provinces List:", provinces);
-        console.log("Selected District:", selectedDistrict);
-        console.log("Districts List:", districts);
-        console.log("Selected Ward:", selectedWard);
-        console.log("Wards List:", wards);
-    }, [selectedProvince, selectedDistrict, selectedWard, provinces, districts, wards]);
-
-
+   
+    const handlePlaceOrder = async () => {
+        if(!provinces.find(p => p.code === selectedProvince)?.name||!districts.find(d => d.code === selectedDistrict)?.name|| !wards.find(w => String(w.code) === String(selectedWard))?.name||!detailAddress){
+            toast.error("Vui lòng chọn đầy đủ địa chỉ")
+        }else{
+            const newShippingAddress = `${provinces.find(p => p.code === selectedProvince)?.name}, ${districts.find(d => d.code === selectedDistrict)?.name}, ${wards.find(w => String(w.code) === String(selectedWard))?.name}, ${detailAddress}`;
+           console.log('newShippingAddress', newShippingAddress)
+            const data={
+                ...order,
+                shippingAddress: newShippingAddress
+            };
+            try {
+                const response = await postOrder(data)
+    
+                if(response){
+                    localStorage.removeItem("cartFlower"); 
+                    const vnpayData = {
+                        finalAmount: response?.data?.totalPrice,
+                        bankCode: "VNBANK", 
+                        orderId: response?.data?.orderId 
+                    };
+                    const vnpay = await postVnPay(vnpayData)
+                    console.log("vnpay",vnpay)
+                    if(vnpay.status==="OK"){
+                         window.location.href = vnpay?.data?.payment_url;
+                    }
+                }
+                toast.success("Đặt hàng thành công")
+                
+            } catch (error) {
+                console.error("Error placing order:", error);
+                alert("Failed to place order. Please try again.");
+            }
+        }
+    };
+    
     // Fetch danh sách tỉnh/thành
     useEffect(() => {
         axios.get("https://provinces.open-api.vn/api/p/")
@@ -89,7 +116,7 @@ const Checkout = () => {
     return (
         <section className="checkout py-80">
             <div className="container container-lg">
-                <div className="border border-gray-100 rounded-8 px-30 py-20 mb-40">
+                {/* <div className="border border-gray-100 rounded-8 px-30 py-20 mb-40">
                     <span className="">
                         Have a coupon?{" "}
                         <Link
@@ -99,24 +126,24 @@ const Checkout = () => {
                             Click here to enter your code
                         </Link>{" "}
                     </span>
-                </div>
+                </div> */}
                 <div className="row">
                     <div className="col-xl-9 col-lg-8">
                         <form action="#" className="pe-xl-5">
                             <div className="row gy-3">
 
-                                <div className="col-sm-6 col-xs-6">
+                                {/* <div className="col-sm-6 col-xs-6">
                                     <input
                                         type="text"
                                         className="common-input border-gray-100"
-                                        placeholder="Full Name"
+                                        placeholder="Tên người nhận"
                                     />
                                 </div>
                                 <div className="col-12">
                                     <input
                                         type="email"
                                         className="common-input border-gray-100"
-                                        placeholder="Email Address"
+                                        placeholder="Email "
                                     />
                                 </div>
 
@@ -125,21 +152,21 @@ const Checkout = () => {
                                     <input
                                         type="number"
                                         className="common-input border-gray-100"
-                                        placeholder="Phone"
+                                        placeholder="Số điện thoại"
                                     />
-                                </div>
+                                </div> */}
 
 
                                 <div className="col-12 p-3 border rounded">
                                     <div className="row g-3">
                                         <div className="col-md-4">
-                                            <label className="form-label">Province/City</label>
+                                            <label className="form-label">Tỉnh/Thành Phố</label>
                                             <select
                                                 className="form-select"
                                                 value={selectedProvince}
                                                 onChange={handleProvinceChange}
                                             >
-                                                <option value="">Select Province</option>
+                                                <option value="">Chọn Tỉnh/Thành phố</option>
                                                 {provinces.map((province) => (
                                                     <option key={province.code} value={province.code}>
                                                         {province.name}
@@ -149,7 +176,7 @@ const Checkout = () => {
                                         </div>
 
                                         <div className="col-md-4">
-                                            <label className="form-label">District</label>
+                                            <label className="form-label">Xã</label>
                                             <select
                                                 className="form-select"
                                                 value={selectedDistrict}
@@ -166,7 +193,7 @@ const Checkout = () => {
                                         </div>
 
                                         <div className="col-md-4">
-                                            <label className="form-label">Ward</label>
+                                            <label className="form-label">Huyện</label>
                                             <select
                                                 className="form-select"
                                                 value={selectedWard}
@@ -184,7 +211,7 @@ const Checkout = () => {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="detailAddress" className="form-label">Detailed Address</label>
+                                        <label htmlFor="detailAddress" className="form-label">Địa chỉ cụ thể</label>
                                         <input
                                             type="text"
                                             id="detailAddress"
@@ -200,7 +227,7 @@ const Checkout = () => {
                            
 
                                     <div className="mt-3">
-                                        <h6 className="text-lg mb-24">Selected Address:</h6>
+                                        <h6 className="text-lg mb-24">Xác nhận địa chỉ giao hàng:</h6>
                                         <p className="common-input border-gray-100">
                                             {selectedProvince && provinces.length > 0
                                                 ? provinces.find(p => p.code === selectedProvince)?.name || "N/A"
@@ -215,7 +242,7 @@ const Checkout = () => {
                                         </p>
                                     </div>
 
-                                <div className="col-12">
+                                {/* <div className="col-12">
                                     <div className="my-40">
                                         <h6 className="text-lg mb-24">Additional Information</h6>
                                         <input
@@ -224,7 +251,7 @@ const Checkout = () => {
                                             placeholder="Notes about your order, e.g. special notes for delivery."
                                         />
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </form>
                     </div>
@@ -232,34 +259,34 @@ const Checkout = () => {
                         <div className="checkout-sidebar">
                             <div className="bg-color-three rounded-8 p-24 text-center">
                                 <span className="text-gray-900 text-xl fw-semibold">
-                                    Your Orders
+                                    Đơn hàng của bạn
                                 </span>
                             </div>
                             <div className="border border-gray-100 rounded-8 px-24 py-40 mt-24">
                                 <div className="mb-32 pb-32 border-bottom border-gray-100 flex-between gap-8">
                                     <span className="text-gray-900 fw-medium text-xl font-heading-two">
-                                        Product
+                                        Danh sách sản phẩm
                                     </span>
                                     <span className="text-gray-900 fw-medium text-xl font-heading-two">
-                                        Subtotal
+                                         Giá lẻ
                                     </span>
                                 </div>
 
                                 <div className="border-top border-gray-100 pt-30  mt-30">
                                     <div className="mb-32 flex-between gap-8">
                                         <span className="text-gray-900 font-heading-two text-xl fw-semibold">
-                                            Subtotal
+                                        Giá
                                         </span>
                                         <span className="text-gray-900 font-heading-two text-md fw-bold">
-                                            $859.00
+                                            ${order?.totalPrice}
                                         </span>
                                     </div>
                                     <div className="mb-0 flex-between gap-8">
                                         <span className="text-gray-900 font-heading-two text-xl fw-semibold">
-                                            Total
+                                            Tổng tiền
                                         </span>
                                         <span className="text-gray-900 font-heading-two text-md fw-bold">
-                                            $859.00
+                                            {order?.totalPrice} VND
                                         </span>
                                     </div>
                                 </div>
@@ -279,13 +306,13 @@ const Checkout = () => {
                                             className="form-check-label fw-semibold text-neutral-600"
                                             htmlFor="payment1"
                                         >
-                                            Direct Bank transfer
+                                            Chuyển khoan ngân hàng
                                         </label>
                                     </div>
                                     {selectedPayment === 'payment1' && (
                                         <div className="payment-item__content px-16 py-24 rounded-8 bg-main-50 position-relative d-block">
                                             <p className="text-gray-800">
-                                                Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+                                                {/* Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account. */}
                                             </p>
                                         </div>
                                     )}
@@ -294,9 +321,8 @@ const Checkout = () => {
                             </div>
                             <div className="mt-32 pt-32 border-top border-gray-100">
                                 <p className="text-gray-500">
-                                    Your personal data will be used to process your order, support
-                                    your experience throughout this website, and for other purposes
-                                    described in our{" "}
+                                Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng của bạn, hỗ trợ
+trải nghiệm của bạn trên toàn bộ trang web này 
                                     <Link to="#" className="text-main-600 text-decoration-underline">
                                         {" "}
                                         privacy policy
@@ -304,12 +330,12 @@ const Checkout = () => {
                                     .
                                 </p>
                             </div>
-                            <Link
-                                to="/checkout"
+                            <button
+                                onClick={()=>{handlePlaceOrder()}}
                                 className="btn btn-main mt-40 py-18 w-100 rounded-8 mt-56"
                             >
-                                Place Order
-                            </Link>
+                                Thanh toán
+                            </button>
                         </div>
                     </div>
                 </div>

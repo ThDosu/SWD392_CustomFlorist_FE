@@ -17,7 +17,7 @@ const QuantityControl = ({ initialQuantity = 1, onQuantityChange }) => {
         if (onQuantityChange) {
             onQuantityChange(quantity);
         }
-    }, [quantity, onQuantityChange]);
+    }, [quantity]);
 
     return (
         <div className="d-flex rounded-4 overflow-hidden">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const style = {
     container: "account py-80",
@@ -9,9 +9,17 @@ const style = {
     button: "btn btn-main py-18 px-40",
     secondaryButton: "btn btn-outline-main py-18 px-40",
     imageUpload: "cursor-pointer rounded-circle overflow-hidden border border-gray-200 d-flex align-items-center justify-content-center",
+    statusBadge: {
+        PENDING: "badge bg-warning text-dark",
+        PROCESSING: "badge bg-info text-white",
+        SHIPPED: "badge bg-primary text-white",
+        DELIVERED: "badge bg-success text-white",
+        CANCELLED: "badge bg-danger text-white"
+    }
 };
 
 const UserProfile = () => {
+    const navigate = useNavigate();
     const [isEditing, setIsEditing] = useState(false);
     
     // Example user data - in a real app, this would come from your auth system
@@ -23,6 +31,24 @@ const UserProfile = () => {
         address: "123 Đường ABC, Quận 1, TP.HCM",
         avatar: "/assets/images/avatar/default-avatar.jpg"
     });
+    
+    // Example recent orders data
+    const recentOrders = [
+        {
+            id: "ORDER123",
+            date: "20/06/2024",
+            items: "Hoa hồng đỏ x 1",
+            total: "350.000 ₫",
+            status: "DELIVERED"
+        },
+        {
+            id: "ORDER456",
+            date: "15/05/2024",
+            items: "Hoa lan hồ điệp x 2",
+            total: "850.000 ₫",
+            status: "SHIPPED"
+        }
+    ];
     
     const [formData, setFormData] = useState({...user});
     
@@ -44,6 +70,23 @@ const UserProfile = () => {
     const handleCancel = () => {
         setFormData({...user});
         setIsEditing(false);
+    };
+    
+    // Function to get appropriate display text for status
+    const getStatusText = (status) => {
+        switch(status) {
+            case 'PENDING': return 'Chờ xử lý';
+            case 'PROCESSING': return 'Đang xử lý';
+            case 'SHIPPED': return 'Đang giao';
+            case 'DELIVERED': return 'Đã giao';
+            case 'CANCELLED': return 'Đã hủy';
+            default: return status;
+        }
+    };
+    
+    // Navigate to order details page
+    const handleViewOrderDetail = (orderId) => {
+        navigate(`/order/${orderId}`);
     };
     
     return (
@@ -207,43 +250,61 @@ const UserProfile = () => {
                     
                     <div className="col-12">
                         <div className={style.card}>
-                            <h6 className="text-xl mb-32">Lịch sử đơn hàng</h6>
-                            <div className="table-responsive">
-                                <table className="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Mã đơn hàng</th>
-                                            <th>Ngày đặt</th>
-                                            <th>Sản phẩm</th>
-                                            <th>Tổng tiền</th>
-                                            <th>Trạng thái</th>
-                                            <th>Thao tác</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>#ORDER123</td>
-                                            <td>20/06/2024</td>
-                                            <td>Hoa hồng đỏ x 1</td>
-                                            <td>350.000 ₫</td>
-                                            <td><span className="badge bg-success">Đã giao</span></td>
-                                            <td>
-                                                <Link to="#" className="btn btn-sm btn-outline-main">Chi tiết</Link>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>#ORDER456</td>
-                                            <td>15/05/2024</td>
-                                            <td>Hoa lan hồ điệp x 2</td>
-                                            <td>850.000 ₫</td>
-                                            <td><span className="badge bg-warning text-dark">Đang giao</span></td>
-                                            <td>
-                                                <Link to="#" className="btn btn-sm btn-outline-main">Chi tiết</Link>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div className="d-flex flex-wrap justify-content-between align-items-center mb-32">
+                                <h6 className="text-xl">Đơn hàng gần đây</h6>
+                                <button 
+                                    className={style.button}
+                                    onClick={() => navigate('/order-history')}
+                                >
+                                    Xem tất cả đơn hàng
+                                </button>
                             </div>
+                            
+                            {recentOrders.length === 0 ? (
+                                <div className="text-center py-4">
+                                    <p>Bạn chưa có đơn hàng nào.</p>
+                                    <Link to="/shop" className="btn btn-main mt-3">Mua sắm ngay</Link>
+                                </div>
+                            ) : (
+                                <div className="table-responsive">
+                                    <table className="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã đơn hàng</th>
+                                                <th>Ngày đặt</th>
+                                                <th>Sản phẩm</th>
+                                                <th>Tổng tiền</th>
+                                                <th>Trạng thái</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {recentOrders.map(order => (
+                                                <tr key={order.id}>
+                                                    <td>#{order.id}</td>
+                                                    <td>{order.date}</td>
+                                                    <td>{order.items}</td>
+                                                    <td>{order.total}</td>
+                                                    <td>
+                                                        <span className={style.statusBadge[order.status]}>
+                                                            {getStatusText(order.status)}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <button
+                                                            type="button"
+                                                            className="btn btn-sm btn-main"
+                                                            onClick={() => handleViewOrderDetail(order.id)}
+                                                        >
+                                                            Chi tiết
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

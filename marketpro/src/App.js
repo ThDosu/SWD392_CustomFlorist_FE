@@ -18,6 +18,7 @@ import QuestionsPage from "./pages/QuestionsPage";
 import InfoSecurityPage from './pages/InfoSecurityPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
 import WhyChooseUsPage from './pages/WhyChooseUsPage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route exact path="/cart" element={<CartPage />} />
         <Route exact path="/checkout" element={<CheckoutPage />} />
         <Route exact path="/account" element={<AccountPage />} />
+        <Route exact path="/profile" element={<ProfilePage />} />
         <Route exact path="/blog" element={<BlogPage />} />
         <Route exact path="/blog-details" element={<BlogDetailsPage />} />
         <Route exact path="/contact" element={<ContactPage />} />

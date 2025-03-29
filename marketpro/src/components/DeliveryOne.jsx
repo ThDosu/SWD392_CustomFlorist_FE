@@ -23,16 +23,6 @@ const DeliveryOne = () => {
                                     We Delivery on Next Day from 10:00 AM to 08:00 PM
                                 </h4>
                                 <p className="text-white">For Orders starts from $100</p>
-                                <Link
-                                    to="/shop"
-                                    className="mt-16 btn btn-main-two fw-medium d-inline-flex align-items-center rounded-pill gap-8"
-                                    tabIndex={0}
-                                >
-                                    Shop Now
-                                    <span className="icon text-xl d-flex">
-                                        <i className="ph ph-arrow-right" />
-                                    </span>
-                                </Link>
                             </div>
                         </div>
                         <div className="col-md-4 col-sm-5 d-sm-block d-none">

@@ -137,11 +137,7 @@ const Account = () => {
                                     <p className="text-gray-500">
                                         Thông tin cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng, hỗ trợ
                                         trải nghiệm của bạn trên trang web này, và cho các mục đích khác
-                                        được mô tả trong
-                                        <Link to="#" className="text-main-600 text-decoration-underline">
-                                            chính sách bảo mật
-                                        </Link>
-                                        .
+                                        được mô tả trong chính sách bảo mật.
                                     </p>
                                 </div>
                                 <div className="mt-48">

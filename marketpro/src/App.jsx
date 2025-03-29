@@ -9,6 +9,7 @@ import ContactPage from './pages/ContactPage';
 import DeliveryPolicyPage from './pages/DeliveryPolicyPage';
 import QuestionsPage from './pages/QuestionsPage';
 import PaymentMethodPage from './pages/PaymentMethodPage';
+import ProfilePage from './pages/ProfilePage';
 
 const App = () => {
     return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/delivery-policy" element={<DeliveryPolicyPage />} />
             <Route path="/questions" element={<QuestionsPage />} />
             <Route path="/payment-method" element={<PaymentMethodPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
         </Routes>
     );
 };

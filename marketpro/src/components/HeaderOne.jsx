@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import { FaShoppingCart, FaUser, FaCaretDown } from 'react-icons/fa';
 
 const HeaderOne = () => {
     const [scroll, setScroll] = useState(false);
+    const [showAccountDropdown, setShowAccountDropdown] = useState(false);
+    const accountDropdownRef = useRef(null);
+    
+    // Example state for user authentication status
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -86,6 +91,66 @@ const HeaderOne = () => {
         marginRight: '5px',
     };
 
+    const accountMenuItemStyle = {
+        margin: '0 15px',
+        position: 'relative',
+    };
+
+    const dropdownStyle = {
+        position: 'absolute',
+        top: '100%',
+        right: '-10px', // Offset to align better with the parent
+        backgroundColor: '#fff',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        borderRadius: '8px',
+        width: '200px',
+        zIndex: 1001,
+        padding: '8px 0',
+        marginTop: '10px',
+        display: showAccountDropdown ? 'block' : 'none',
+    };
+
+    // Add a little arrow/triangle to the dropdown
+    const dropdownArrowStyle = {
+        position: 'absolute',
+        top: '-8px',
+        right: '20px',
+        width: '0',
+        height: '0',
+        borderLeft: '8px solid transparent',
+        borderRight: '8px solid transparent',
+        borderBottom: '8px solid #fff',
+    };
+
+    const dropdownItemStyle = {
+        padding: '8px 16px',
+        display: 'block',
+        textDecoration: 'none',
+        color: '#333',
+        fontSize: '14px',
+        transition: 'background-color 0.3s ease',
+    };
+
+    const handleAccountDropdownClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setShowAccountDropdown(!showAccountDropdown);
+    };
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (accountDropdownRef.current && !accountDropdownRef.current.contains(event.target)) {
+                setShowAccountDropdown(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
     return (
         <>
             <header style={headerStyle}>
@@ -163,10 +228,11 @@ const HeaderOne = () => {
                                         <span style={badgeStyle}>2</span>
                                     </Link>
                                 </li>
-                                <li style={navMenuItemStyle}>
-                                    <Link
-                                        to="/account"
+                                <li style={accountMenuItemStyle} ref={accountDropdownRef}>
+                                    <a
+                                        href="#"
                                         style={navMenuLinkStyle}
+                                        onClick={handleAccountDropdownClick}
                                         onMouseEnter={(e) =>
                                             (e.target.style.color = navMenuLinkHoverStyle.color)
                                         }
@@ -176,7 +242,81 @@ const HeaderOne = () => {
                                     >
                                         <FaUser style={iconStyle} />
                                         Tài khoản
-                                    </Link>
+                                        <FaCaretDown style={{ marginLeft: '5px' }} />
+                                    </a>
+                                    <div style={dropdownStyle}>
+                                        <div style={dropdownArrowStyle}></div>
+                                        {isLoggedIn ? (
+                                            <>
+                                                <Link 
+                                                    to="/profile" 
+                                                    style={dropdownItemStyle}
+                                                    onMouseEnter={(e) => 
+                                                        (e.target.style.backgroundColor = '#f8f9fa')
+                                                    }
+                                                    onMouseLeave={(e) => 
+                                                        (e.target.style.backgroundColor = 'transparent')
+                                                    }
+                                                >
+                                                    Thông tin tài khoản
+                                                </Link>
+                                                <Link 
+                                                    to="/checkout" 
+                                                    style={dropdownItemStyle}
+                                                    onMouseEnter={(e) => 
+                                                        (e.target.style.backgroundColor = '#f8f9fa')
+                                                    }
+                                                    onMouseLeave={(e) => 
+                                                        (e.target.style.backgroundColor = 'transparent')
+                                                    }
+                                                >
+                                                    Đơn hàng của tôi
+                                                </Link>
+                                                <hr style={{ margin: '4px 0', borderTop: '1px solid #e5e7eb' }} />
+                                                <a 
+                                                    href="#" 
+                                                    style={dropdownItemStyle}
+                                                    onMouseEnter={(e) => 
+                                                        (e.target.style.backgroundColor = '#f8f9fa')
+                                                    }
+                                                    onMouseLeave={(e) => 
+                                                        (e.target.style.backgroundColor = 'transparent')
+                                                    }
+                                                    onClick={() => setIsLoggedIn(false)}
+                                                >
+                                                    Đăng xuất
+                                                </a>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Link 
+                                                    to="/account" 
+                                                    style={dropdownItemStyle}
+                                                    onMouseEnter={(e) => 
+                                                        (e.target.style.backgroundColor = '#f8f9fa')
+                                                    }
+                                                    onMouseLeave={(e) => 
+                                                        (e.target.style.backgroundColor = 'transparent')
+                                                    }
+                                                >
+                                                    Đăng nhập
+                                                </Link>
+                                                <a 
+                                                    href="#" 
+                                                    style={dropdownItemStyle}
+                                                    onMouseEnter={(e) => 
+                                                        (e.target.style.backgroundColor = '#f8f9fa')
+                                                    }
+                                                    onMouseLeave={(e) => 
+                                                        (e.target.style.backgroundColor = 'transparent')
+                                                    }
+                                                    onClick={() => setIsLoggedIn(true)} // For demo purposes
+                                                >
+                                                    Demo: Giả vờ đã đăng nhập
+                                                </a>
+                                            </>
+                                        )}
+                                    </div>
                                 </li>
                             </ul>
                         </div>

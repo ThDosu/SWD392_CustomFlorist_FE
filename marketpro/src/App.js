@@ -19,6 +19,8 @@ import InfoSecurityPage from './pages/InfoSecurityPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
 import WhyChooseUsPage from './pages/WhyChooseUsPage';
 import ProfilePage from './pages/ProfilePage';
+import OrderDetailPage from './pages/OrderDetailPage';
+import OrderHistoryPage from './pages/OrderHistoryPage';
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
         <Route exact path="/checkout" element={<CheckoutPage />} />
         <Route exact path="/account" element={<AccountPage />} />
         <Route exact path="/profile" element={<ProfilePage />} />
+        <Route exact path="/order-history" element={<OrderHistoryPage />} />
+        <Route exact path="/order/:orderId" element={<OrderDetailPage />} />
         <Route exact path="/blog" element={<BlogPage />} />
         <Route exact path="/blog-details" element={<BlogDetailsPage />} />
         <Route exact path="/contact" element={<ContactPage />} />
